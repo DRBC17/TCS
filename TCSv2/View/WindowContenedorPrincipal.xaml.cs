@@ -33,5 +33,12 @@ namespace TCSv2.View
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void BtnCerrarSession_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow ventana = new MainWindow();
+            ventana.Show();
+            this.Close();
+        }
     }
 }

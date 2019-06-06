@@ -26,18 +26,12 @@
         <!--#endregion-->
         
         
-        <!--#region Barra de logo-->
-        <Border Background="Silver" Grid.RowSpan="2" Grid.Column="0">
-            <Image Source="/Assets/TClogo.png"/>
-        </Border>
-        <!--#endregion-->
-        
         <!--#region Barra Informacion del Usuario-->
-        <Border Background="Silver" Grid.RowSpan="2" Grid.Column="1">
+        <Border Background="Silver" Grid.RowSpan="2" Grid.ColumnSpan="3">
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="1" Background="White">
                 <Image Name="imgCuenta" Source="/Assets/Fcuenta.png" Width="110" Height="120" Margin="8"/>
-                <StackPanel Orientation="Vertical" Margin="15" >
+                <StackPanel Orientation="Vertical" Margin="15 28 15 15" >
                     <Label Name="lbNombreUser" Foreground="Blue" FontSize="25" Content="Nombre Del Usuario" />
                     <Label Name="lbCargoUser" Foreground="Blue" FontSize="25" Content="Cargo Del Usuario"/>
                 </StackPanel>
@@ -47,7 +41,7 @@
         <!--#endregion-->
 
         <!--#region Principio De Barra de Aplicacion-->
-        <Border Background="Silver" Grid.Row="0" Grid.Column="2">
+        <Border Background="Transparent" Grid.Row="0" Grid.Column="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="2">
                 <Button Name="btnMin" Width="30" Height="30" Background="Silver" Padding="0" Click="BtnMin_Click" BorderThickness="0">
                     <materialDesign:PackIcon Kind="WindowMinimize"/>
@@ -59,16 +53,83 @@
         </Border>
         <!--#endregion-->
         
-        <!--#region  Rellenar espacio con color-->
+        <!--#region  Rellenar espacio con color--><!--
         <Grid Background="Silver" Grid.Row="1" Grid.Column="2">
             
         </Grid>
+        --><!--#endregion-->
+        <!--#region Barra de logo-->
+        <Border Background="Silver" Grid.RowSpan="2" Grid.Column="0">
+            <Image Source="/Assets/TClogo.png" Margin="3"/>
+        </Border>
         <!--#endregion-->
-        
+
         <!--#region Color en La Barra superior-->
         <Border Grid.RowSpan="2" Grid.ColumnSpan="3" BorderBrush="Blue" BorderThickness="2"/>
 
 
+        <!--#endregion-->
+        
+        <!--#region Barra Lateral Izquierda-->
+        <Border Grid.Row="2" Grid.Column="0" Background="Blue" >
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+
+                <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="28" Foreground="White">Categoria</TextBlock>
+                    </StackPanel>
+                </Button>
+                
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="28" Foreground="White">Articulos</TextBlock>
+                    </StackPanel>
+                </Button>
+                
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="28" Foreground="White">Ventas</TextBlock>
+                    </StackPanel>
+                </Button>
+                
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="28" Foreground="White">Clientes</TextBlock>
+                    </StackPanel>
+                </Button>
+               
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="28" Foreground="White">Compras</TextBlock>
+                    </StackPanel>
+                </Button>
+               
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="28" Foreground="White">Proveedores</TextBlock>
+                    </StackPanel>
+                </Button>
+                
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="28" Foreground="White">Usuarios</TextBlock>
+                    </StackPanel>
+                </Button>
+                
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="24" Foreground="White">Consulta de Stock</TextBlock>
+                    </StackPanel>
+                </Button>
+                
+                    <Button Name="btnCerrarSession" Background="Transparent" Style="{StaticResource MaterialDesignFloatingActionLightButton}" Width="70" Height="70" BorderThickness="3" BorderBrush="Blue" Click="BtnCerrarSession_Click">
+                        <Image Source="/Assets/salir_3.png" Width="65" Height="65"/>
+                    </Button>
+                
+            </StackPanel>
+        </Border>
+        
         <!--#endregion-->
     </Grid>
 </Window>

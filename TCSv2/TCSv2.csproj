@@ -120,5 +120,12 @@
   <ItemGroup>
     <Resource Include="Assets\Fcuenta.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\salir_1.png" />
+    <Resource Include="Assets\salir_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\salir_3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
