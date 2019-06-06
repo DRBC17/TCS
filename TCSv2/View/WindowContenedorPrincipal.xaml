@@ -49,10 +49,10 @@
         <!--#region Principio De Barra de Aplicacion-->
         <Border Background="Silver" Grid.Row="0" Grid.Column="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="2">
-                <Button Name="btnMin" Width="30" Height="30" Background="Silver" Padding="0" Click="BtnMin_Click">
+                <Button Name="btnMin" Width="30" Height="30" Background="Silver" Padding="0" Click="BtnMin_Click" BorderThickness="0">
                     <materialDesign:PackIcon Kind="WindowMinimize"/>
                 </Button>
-                <Button Name="btnCerrar" Width="30" Height="30" Background="Crimson" Padding="0" Click="BtnCerrar_Click">
+                <Button Name="btnCerrar" Width="30" Height="30" Background="Crimson" Padding="0" Click="BtnCerrar_Click" BorderThickness="0">
                     <materialDesign:PackIcon Kind="WindowClose"/>
                 </Button>
             </StackPanel>

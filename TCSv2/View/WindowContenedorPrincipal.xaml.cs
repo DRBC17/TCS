@@ -26,12 +26,12 @@ namespace TCSv2.View
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
         private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Minimized;
         }
     }
 }
