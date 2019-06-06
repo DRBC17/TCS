@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TCSv2.View;
 
 namespace TCSv2
 {
@@ -22,6 +23,7 @@ namespace TCSv2
     {
         public MainWindow()
         {
+            
             InitializeComponent();
         }
 
@@ -32,7 +34,9 @@ namespace TCSv2
 
         private void BtnIniciar_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
+            ventana.Show();
+            this.Close();
         }
 
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
