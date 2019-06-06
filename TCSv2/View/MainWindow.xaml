@@ -13,8 +13,8 @@
             <Image Source="/Assets/TClogo.png" Width="150" Height="150"/>
             <Border Background="White" Margin="10 20" CornerRadius="5">
                 <StackPanel Margin="25"><!--MaterialDesignTextBox-->
-                    <TextBox Name="txtUser" Margin="15" FontSize="25"  Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="           Usuario" materialDesign:HintAssist.IsFloating="True" />
-                    <TextBox Name="txtPass" Margin="15" FontSize="25"  Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="         Contraseña" materialDesign:HintAssist.IsFloating="True"/>
+                    <TextBox Name="txtUser" Margin="15" FontSize="25" Width="260" TextAlignment="Center"  HorizontalContentAlignment="Center" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" />
+                    <PasswordBox Name="txtPass" Margin="15" Width="260" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="25"  Foreground="Blue" Style="{StaticResource MaterialDesignPasswordBox}"  materialDesign:HintAssist.Hint=" Contraseña" materialDesign:HintAssist.IsFloating="True"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Name="btnIniciar" Margin="5 50" Width="120" Content="Iniciar sesión" Click="BtnIniciar_Click"/>
                         <Button Name="btnSalir" Margin="5 50" Width="120" Content="Salir" Click="BtnSalir_Click"/>
