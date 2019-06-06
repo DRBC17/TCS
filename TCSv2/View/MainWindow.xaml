@@ -6,17 +6,18 @@
         xmlns:local="clr-namespace:TCSv2"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="450" WindowStartupLocation="CenterScreen" Background="#FF1B64CF" WindowStyle="None">
+        Title="MainWindow" Height="580" Width="420" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF1B64CF" WindowStyle="None" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
     <Grid>
-        <StackPanel Margin="50">
-            <Image Source="/Assets/TClogo.png" Width="96" Height="96"/>
+        <!--<Image Source=""/>-->
+        <StackPanel Margin="30">
+            <Image Source="/Assets/TClogo.png" Width="150" Height="150"/>
             <Border Background="White" Margin="10 20" CornerRadius="5">
                 <StackPanel Margin="25"><!--MaterialDesignTextBox-->
-                    <TextBox Name="txtUser" Margin="15" FontSize="25"  Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" />
-                    <TextBox Name="txtPass" Margin="15" FontSize="25"  Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True"/>
+                    <TextBox Name="txtUser" Margin="15" FontSize="25"  Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="           Usuario" materialDesign:HintAssist.IsFloating="True" />
+                    <TextBox Name="txtPass" Margin="15" FontSize="25"  Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="         Contraseña" materialDesign:HintAssist.IsFloating="True"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Margin="15 10"/>
-                        <Button Margin="15 10"/>
+                        <Button Name="btnIniciar" Margin="5 50" Width="120" Content="Iniciar sesión" Click="BtnIniciar_Click"/>
+                        <Button Name="btnSalir" Margin="5 50" Width="120" Content="Salir" Click="BtnSalir_Click"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
