@@ -71,7 +71,7 @@
         <!--#endregion-->
         
         <!--#region Barra Lateral Izquierda-->
-        <Border Grid.Row="2" Grid.Column="0" Background="Blue" >
+        <Border Grid.Row="2" Grid.Column="0" Background="#FF1B64CF" >
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
 
 
@@ -122,8 +122,8 @@
                         <TextBlock FontSize="24" Foreground="White">Consulta de Stock</TextBlock>
                     </StackPanel>
                 </Button>
-                
-                    <Button Name="btnCerrarSession" Background="Transparent" Style="{StaticResource MaterialDesignFloatingActionLightButton}" Width="70" Height="70" BorderThickness="3" BorderBrush="Blue" Click="BtnCerrarSession_Click">
+
+                <Button Name="btnCerrarSession" Background="Transparent" Style="{StaticResource MaterialDesignFloatingActionLightButton}" Width="70" Height="70" BorderThickness="3" BorderBrush="#FF1B64CF" Click="BtnCerrarSession_Click">
                         <Image Source="/Assets/salir_3.png" Width="65" Height="65"/>
                     </Button>
                 
