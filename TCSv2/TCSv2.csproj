@@ -64,6 +64,9 @@
     <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
       <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows Children\Categoria.xaml.cs">
+      <DependentUpon>Categoria.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +80,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\WindowContenedorPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows Children\Categoria.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,9 +121,7 @@
   <ItemGroup>
     <Resource Include="Assets\TClogo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Windows Children\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Assets\Fcuenta.png" />
   </ItemGroup>

@@ -75,7 +75,7 @@
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
 
 
-                <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+                <Button Name="btnCategoria" Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60" Click="BtnCategoria_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontSize="28" Foreground="White">Categoria</TextBlock>
                     </StackPanel>

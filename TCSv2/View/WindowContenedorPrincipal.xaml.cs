@@ -40,5 +40,16 @@ namespace TCSv2.View
             ventana.Show();
             this.Close();
         }
+
+        private void Button_GotFocus(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+       
+        private void BtnCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
