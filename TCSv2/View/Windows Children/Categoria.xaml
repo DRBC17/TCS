@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TCSv2.View.Windows_Children"
         mc:Ignorable="d"
-        Title="Categoria" Height="450" Width="800">
+        Title="Categoria" Height="450" Width="800" WindowStartupLocation="Manual">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -14,7 +14,7 @@
 
         <Border Grid.Row="0">
             <StackPanel Background="Azure" Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Name="btnListado" Content="Listado" Margin="5 0 5 0" Click="BtnListado_Click"/>
+                <Button Name="btnListado" Content="Listado" Margin="5 0 5 0" Click="BtnListado_Click" MouseEnter="BtnListado_MouseEnter" MouseLeave="BtnListado_MouseLeave"/>
                 <Button Name="btnCategoria" Content="Mantenimiento" Click="BtnCategoria_Click"/>
             </StackPanel>
             

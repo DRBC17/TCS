@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TCSv2.View;
+using TCSv2.View.Windows_Children;
 
 namespace TCSv2.View
 {
@@ -49,7 +51,30 @@ namespace TCSv2.View
        
         private void BtnCategoria_Click(object sender, RoutedEventArgs e)
         {
-            
+            Categoria ventana = new Categoria();
+            ventana.Show();
+           
+        }
+
+        private void BtnCategoria_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnCategoria.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+
+            // Background = "#FF1B64CF" 27, 100, 207
+        }
+
+
+
+        private void BtnAticulos_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnAticulos.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+
+        }
+
+        private void BtnCategoria_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnCategoria.Background = Brushes.Blue;
+           
         }
     }
 }

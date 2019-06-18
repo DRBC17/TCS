@@ -121,7 +121,9 @@
   <ItemGroup>
     <Resource Include="Assets\TClogo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Categoria.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Fcuenta.png" />
   </ItemGroup>
@@ -131,6 +133,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\salir_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Articulos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Categoria_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Clientes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Proveedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Usuarios.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

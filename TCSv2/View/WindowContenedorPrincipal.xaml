@@ -32,8 +32,8 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="1" Background="White">
                 <Image Name="imgCuenta" Source="/Assets/Fcuenta.png" Width="110" Height="120" Margin="8"/>
                 <StackPanel Orientation="Vertical" Margin="15 28 15 15" >
-                    <Label Name="lbNombreUser" Foreground="Blue" FontSize="25" Content="Nombre Del Usuario" />
-                    <Label Name="lbCargoUser" Foreground="Blue" FontSize="25" Content="Cargo Del Usuario"/>
+                    <Label Name="lbNombreUser" Foreground="#FF1B64CF" FontSize="25" Content="Nombre Del Usuario" />
+                    <Label Name="lbCargoUser" Foreground="#FF1B64CF" FontSize="25" Content="Cargo Del Usuario"/>
                 </StackPanel>
             </StackPanel>    
         </Border>
@@ -65,65 +65,73 @@
         <!--#endregion-->
 
         <!--#region Color en La Barra superior-->
-        <Border Grid.RowSpan="2" Grid.ColumnSpan="3" BorderBrush="Blue" BorderThickness="2"/>
+        <Border Grid.RowSpan="2" Grid.ColumnSpan="3" BorderBrush="#FF1B64CF" BorderThickness="2"/>
 
 
         <!--#endregion-->
         
         <!--#region Barra Lateral Izquierda-->
         <Border Grid.Row="2" Grid.Column="0" Background="#FF1B64CF" >
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical" >
 
 
-                <Button Name="btnCategoria" Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60" Click="BtnCategoria_Click">
-                    <StackPanel Orientation="Horizontal">
+                <Button Name="btnCategoria" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="230" Height="60" Click="BtnCategoria_Click" MouseLeave="BtnCategoria_MouseLeave" MouseEnter="BtnCategoria_MouseEnter" Margin="0 5 0 0">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Assets/Categoria_2.png" Width="45" Height="50" Margin="0 0 10 0"/>
                         <TextBlock FontSize="28" Foreground="White">Categoria</TextBlock>
                     </StackPanel>
                 </Button>
-                
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
-                    <StackPanel Orientation="Horizontal">
+
+                <Button Name="btnAticulos" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="230" Height="60" MouseLeave="BtnAticulos_MouseLeave" >
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Image Source="/Assets/Articulos.png" Width="45" Height="50" Margin="0 0 10 0"/>
                         <TextBlock FontSize="28" Foreground="White">Articulos</TextBlock>
                     </StackPanel>
                 </Button>
-                
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="70">
-                    <StackPanel Orientation="Horizontal">
+
+                <Button Name="btnVentas" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="230" Height="60">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Image Source="/Assets/Ventas.png" Width="45" Height="50" Margin="0 0 10 0"/>
                         <TextBlock FontSize="28" Foreground="White">Ventas</TextBlock>
                     </StackPanel>
                 </Button>
-                
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
-                    <StackPanel Orientation="Horizontal">
+
+                <Button Name="btnClientes" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="230" Height="60">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Assets/Usuarios.png" Width="45" Height="50" Margin="0 0 10 0" />
                         <TextBlock FontSize="28" Foreground="White">Clientes</TextBlock>
                     </StackPanel>
                 </Button>
-               
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+
+                <Button Name="btnCpmpras" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="230" Height="60">
                     <StackPanel Orientation="Horizontal">
+                        <Image Source="/Assets/Compras.png" Width="45" Height="50" Margin="0 0 10 0"/>
                         <TextBlock FontSize="28" Foreground="White">Compras</TextBlock>
                     </StackPanel>
                 </Button>
-               
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+
+                <Button Name="btnProveedores" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="230" Height="60">
                     <StackPanel Orientation="Horizontal">
+                        <Image Source="/Assets/Proveedor.png" Width="45" Height="50" Margin="0 0 10 0"/>
                         <TextBlock FontSize="28" Foreground="White">Proveedores</TextBlock>
                     </StackPanel>
                 </Button>
-                
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+
+                <Button Name="btnUsuarios" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="230" Height="60">
                     <StackPanel Orientation="Horizontal">
+                        <Image Source="/Assets/Clientes.png" Width="45" Height="50" Margin="0 0 10 0"/>
                         <TextBlock FontSize="28" Foreground="White">Usuarios</TextBlock>
                     </StackPanel>
                 </Button>
-                
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Width="230" Height="60">
+
+                <Button Name="btnCStock" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="230" Height="60">
                     <StackPanel Orientation="Horizontal">
+                        <!--<Image Source="/Assets/Categoria.png" Width="45" Height="50" Margin="0 0 10 0"/>-->
                         <TextBlock FontSize="24" Foreground="White">Consulta de Stock</TextBlock>
                     </StackPanel>
                 </Button>
 
-                <Button Name="btnCerrarSession" Background="Transparent" Style="{StaticResource MaterialDesignFloatingActionLightButton}" Width="70" Height="70" BorderThickness="3" BorderBrush="#FF1B64CF" Click="BtnCerrarSession_Click">
+                <Button Name="btnCerrarSession" Background="Transparent" Style="{StaticResource MaterialDesignFloatingActionLightButton}" Width="70" Height="70" BorderThickness="3" BorderBrush="#FF1B64CF" Click="BtnCerrarSession_Click" Margin="5">
                         <Image Source="/Assets/salir_3.png" Width="65" Height="65"/>
                     </Button>
                 

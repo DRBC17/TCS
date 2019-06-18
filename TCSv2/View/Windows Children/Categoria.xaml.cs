@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TCSv2.View;
 
 namespace TCSv2.View.Windows_Children
 {
@@ -29,12 +30,26 @@ namespace TCSv2.View.Windows_Children
             
 
             PanelListado.Visibility = Visibility.Visible;
+            PanelMantenimiento.Visibility = Visibility.Hidden;
 
         }
 
         private void BtnCategoria_Click(object sender, RoutedEventArgs e)
         {
+            PanelMantenimiento.Visibility = Visibility.Visible;
+            PanelListado.Visibility = Visibility.Hidden;
+        }
 
+        private void BtnListado_MouseEnter(object sender, MouseEventArgs e)
+        {
+           // btnListado.Background = new SolidColorBrush(Color.FromArgb(255, 0, 255, 0));
+           btnListado.Background= Brushes.Crimson;
+
+        }
+
+        private void BtnListado_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnListado.Background = Brushes.Blue;
         }
     }
 }
