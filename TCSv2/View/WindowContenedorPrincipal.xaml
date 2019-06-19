@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:TCSv2.View"
         
         mc:Ignorable="d"
-        Title="WindowContenedorPrincipal" Height="700" Width="1200" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+        Title="WindowContenedorPrincipal" Height="700" Width="1200"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Maximized" AllowsTransparency="True" WindowStyle="None">
     <Grid>
         <!--#region Definicion de Row and Column-->
         <Grid.RowDefinitions>

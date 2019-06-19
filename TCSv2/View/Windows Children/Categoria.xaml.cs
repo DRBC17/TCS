@@ -51,5 +51,15 @@ namespace TCSv2.View.Windows_Children
         {
             btnListado.Background = Brushes.Blue;
         }
+
+        private void BtnCerrar_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

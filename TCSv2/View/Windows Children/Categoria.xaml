@@ -3,16 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:TCSv2.View.Windows_Children"
         mc:Ignorable="d"
-        Title="Categoria" Height="450" Width="800" WindowStartupLocation="Manual">
+        Title="Categoria" Height="670" Width="1085" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0">
+        <Border Grid.Row="0" Background="#FF1B64CF">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="btnMax" Background="#FF1B64CF">
+                    <materialDesign:PackIcon Kind="WindowMaximize"/>
+                </Button>
+                <Button Name="btnCerrar" Background="#FF1B64CF" MouseEnter="BtnListado_MouseEnter" MouseLeave="BtnCerrar_MouseLeave" Click="BtnCerrar_Click">
+                    <materialDesign:PackIcon Kind="WindowClose"/>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1">
             <StackPanel Background="Azure" Orientation="Horizontal" VerticalAlignment="Center">
                 <Button Name="btnListado" Content="Listado" Margin="5 0 5 0" Click="BtnListado_Click" MouseEnter="BtnListado_MouseEnter" MouseLeave="BtnListado_MouseLeave"/>
                 <Button Name="btnCategoria" Content="Mantenimiento" Click="BtnCategoria_Click"/>
