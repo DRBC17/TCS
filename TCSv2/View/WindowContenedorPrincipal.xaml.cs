@@ -75,6 +75,7 @@ namespace TCSv2.View
             ventana.Owner = this;
             ventana.Show();
             btnCategoria.Background = Brushes.Blue;
+            //btnCategoria.IsEnabled = false;
            // categoriaPush = true;
            
         }

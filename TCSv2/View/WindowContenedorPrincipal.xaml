@@ -75,12 +75,12 @@
             <StackPanel Orientation="Vertical" Margin="5">
 
 
-                <Button Name="btnCategoria" Margin="5" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="280" Height="60" Click="BtnCategoria_Click" MouseLeave="BtnCategoria_MouseLeave" MouseEnter="BtnCategoria_MouseEnter" >
+                <Button Name="btnCategoria" Margin="5" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="280" Height="60" Click="BtnCategoria_Click" MouseLeave="BtnCategoria_MouseLeave" MouseEnter="BtnCategoria_MouseEnter" IsEnabled="True" >
                     <StackPanel Orientation="Horizontal" Width="250"  >
 
 
                         <Image Source="/Assets/Categoria_2.png" Width="45" Height="50" Margin="0 0 10 0"/>
-                        <TextBlock FontSize="28" Foreground="White">Categoria</TextBlock>
+                        <TextBlock FontSize="28" Foreground="White">Categoría</TextBlock>
                         
                     </StackPanel>
                 </Button>

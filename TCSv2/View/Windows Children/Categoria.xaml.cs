@@ -43,10 +43,10 @@ namespace TCSv2.View.Windows_Children
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            WindowContenedorPrincipal VentanaPrincipal = new WindowContenedorPrincipal();
-            VentanaPrincipal.categoriaPush = false;
-            VentanaPrincipal.btnCategoria.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
-          
+            //WindowContenedorPrincipal VentanaPrincipal = new WindowContenedorPrincipal();
+            //VentanaPrincipal.categoriaPush = false;
+            //VentanaPrincipal.btnCategoria.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+            //VentanaPrincipal.btnCategoria.IsEnabled = true;
             this.Close();
             
             
@@ -58,7 +58,7 @@ namespace TCSv2.View.Windows_Children
             this.WindowState = WindowState.Maximized;
             btnRest.Visibility = Visibility.Visible;
             btnMax.Visibility = Visibility.Collapsed;
-            PanelListado.Width = 1400;
+            PanelListado.Width = 1200;
         }
 
         private void BtnRest_Click(object sender, RoutedEventArgs e)
@@ -66,7 +66,7 @@ namespace TCSv2.View.Windows_Children
             this.WindowState = WindowState.Normal;
             btnMax.Visibility = Visibility.Visible;
             btnRest.Visibility = Visibility.Collapsed;
-            PanelListado.Width = 900;
+            PanelListado.Width = 1000;
         }
 
         #region  Efectos Brillo al Pasar el Mouse
