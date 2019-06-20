@@ -40,16 +40,36 @@ namespace TCSv2.View.Windows_Children
             PanelListado.Visibility = Visibility.Hidden;
         }
 
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void BtnMax_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;
+            btnRest.Visibility = Visibility.Visible;
+            btnMax.Visibility = Visibility.Collapsed;
+        }
+
+        private void BtnRest_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Normal;
+            btnMax.Visibility = Visibility.Visible;
+            btnRest.Visibility = Visibility.Collapsed;
+        }
+
+        #region  Efectos Brillo al Pasar el Mouse
+
         private void BtnListado_MouseEnter(object sender, MouseEventArgs e)
         {
           
-           btnListado.Background= Brushes.Crimson;
+           btnListado.Background= Brushes.Blue;
 
         }
 
         private void BtnListado_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnListado.Background = Brushes.Blue;
+            btnListado.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
         }
 
         private void BtnCerrar_MouseLeave(object sender, MouseEventArgs e)
@@ -57,20 +77,14 @@ namespace TCSv2.View.Windows_Children
             btnCerrar.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
         }
 
-        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+       
 
         private void BtnCerrar_MouseEnter(object sender, MouseEventArgs e)
         {
             btnCerrar.Background = Brushes.Crimson;
         }
 
-        private void BtnMax_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Maximized;
-        }
+       
 
         private void BtnMax_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -81,5 +95,32 @@ namespace TCSv2.View.Windows_Children
         {
             btnMax.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
         }
+
+      
+        private void BtnMantenimiento_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnMantenimiento.Background = Brushes.Blue;
+        }
+
+        private void BtnMantenimiento_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnMantenimiento.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        private void BtnRest_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+            btnMantenimiento.Background = Brushes.Blue;
+        }
+
+
+        private void BtnRest_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnMantenimiento.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+        #endregion
+
+
+
     }
 }
