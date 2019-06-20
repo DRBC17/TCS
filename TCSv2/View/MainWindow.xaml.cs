@@ -43,5 +43,25 @@ namespace TCSv2
         {
             Application.Current.Shutdown();
         }
+
+        private void BtnIniciar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnIniciar.Background = Brushes.Blue;
+        }
+
+        private void BtnIniciar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnIniciar.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        private void BtnSalir_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnSalir.Background = Brushes.Crimson;
+        }
+
+        private void BtnSalir_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnSalir.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
     }
 }
