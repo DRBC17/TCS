@@ -12,6 +12,8 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         
         <!--#region Barra Superior De Herramientas-->
@@ -45,7 +47,7 @@
         </Border>
         
         <!--#region Panel Listado-->
-        <Border Name="PanelListado" Grid.Row="2" Visibility="Hidden" Width="1000">
+        <Border Name="PanelListado" Grid.RowSpan="5" Visibility="Visible" Width="1000" Margin="0 70">
             <Grid Background="White">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
@@ -74,9 +76,47 @@
         
         <!--#region Panel Mantenimiento-->
         <Border Name="PanelMantenimiento" Grid.Row="2" Visibility="Hidden">
-            <Grid Background="Crimson">
+            <Grid Background="White">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="15" HorizontalAlignment="Center">
+                        <TextBox Name="txtNombreMantenimiento" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="41 0 0 15"/>
+                        <TextBox  Height="150" Width="250" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Detalle" materialDesign:HintAssist.IsFloating="False" Background="#FF1B64CF" Foreground="White" FontSize="25"></TextBox>
 
+                    </StackPanel>
+                   
+                   
+                </StackPanel>
             </Grid>
+        </Border>
+        <Border Grid.Row="3" Name="PanelMantenimientoBotones" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal" Height="100" HorizontalAlignment="Center">
+                <!--Espacio Para Total de Registros -->
+                <Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="FilePlus" Width="40" Height="40" />
+                        <TextBlock FontSize="25" Margin="5">Nuevo</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="ContentSave" Width="40" Height="40"/>
+                        <TextBlock FontSize="25" Margin="5">Guardar</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Edit" Width="40" Height="40"/>
+                        <TextBlock FontSize="25" Margin="5">Editar</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Cancel" Width="40" Height="40"/>
+                        <TextBlock FontSize="25" Margin="5">Cancelar</TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
         </Border>
         <!--#endregion-->
         

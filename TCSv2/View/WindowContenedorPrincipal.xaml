@@ -145,7 +145,7 @@
         
         <!--#region PanelContenedor Borde Color-->
         <Border  BorderBrush="#FF1B64CF" BorderThickness="2" Grid.Row="2" Grid.ColumnSpan="3" Margin="300 0 0 0">
-
+        
         </Border>
         <!--#endregion-->
         

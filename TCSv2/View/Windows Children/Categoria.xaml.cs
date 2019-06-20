@@ -31,6 +31,7 @@ namespace TCSv2.View.Windows_Children
             
 
             PanelListado.Visibility = Visibility.Visible;
+            PanelMantenimientoBotones.Visibility = Visibility.Hidden;
             PanelMantenimiento.Visibility = Visibility.Hidden;
 
         }
@@ -38,6 +39,7 @@ namespace TCSv2.View.Windows_Children
         private void BtnCategoria_Click(object sender, RoutedEventArgs e)
         {
             PanelMantenimiento.Visibility = Visibility.Visible;
+            PanelMantenimientoBotones.Visibility = Visibility.Visible;
             PanelListado.Visibility = Visibility.Hidden;
         }
 
