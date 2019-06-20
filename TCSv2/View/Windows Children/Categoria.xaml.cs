@@ -42,7 +42,7 @@ namespace TCSv2.View.Windows_Children
 
         private void BtnListado_MouseEnter(object sender, MouseEventArgs e)
         {
-           // btnListado.Background = new SolidColorBrush(Color.FromArgb(255, 0, 255, 0));
+          
            btnListado.Background= Brushes.Crimson;
 
         }
@@ -54,12 +54,32 @@ namespace TCSv2.View.Windows_Children
 
         private void BtnCerrar_MouseLeave(object sender, MouseEventArgs e)
         {
-
+            btnCerrar.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
 
+        private void BtnCerrar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnCerrar.Background = Brushes.Crimson;
+        }
+
+        private void BtnMax_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;
+        }
+
+        private void BtnMax_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnMax.Background = Brushes.Blue;
+        }
+
+        private void BtnMax_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnMax.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
         }
     }
 }

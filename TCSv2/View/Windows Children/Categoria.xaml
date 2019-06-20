@@ -6,7 +6,7 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:TCSv2.View.Windows_Children"
         mc:Ignorable="d"
-        Title="Categoria" Height="670" Width="1085" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="Categoria" Height="670" Width="1075" WindowStartupLocation="Manual" Top="130" Left="295" ResizeMode="NoResize" WindowStyle="None" BorderBrush="#FF1B64CF" BorderThickness="2">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -16,27 +16,28 @@
 
         <Border Grid.Row="0" Background="#FF1B64CF">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="btnMax" Background="#FF1B64CF">
+                <Button Name="btnMax" Background="#FF1B64CF" Click="BtnMax_Click" MouseEnter="BtnMax_MouseEnter"  MouseLeave="BtnMax_MouseLeave" BorderThickness="0">
                     <materialDesign:PackIcon Kind="WindowMaximize"/>
                 </Button>
-                <Button Name="btnCerrar" Background="#FF1B64CF" MouseEnter="BtnListado_MouseEnter" MouseLeave="BtnCerrar_MouseLeave" Click="BtnCerrar_Click">
+                <Button Name="btnCerrar" Background="#FF1B64CF" MouseEnter="BtnCerrar_MouseEnter" MouseLeave="BtnCerrar_MouseLeave" Click="BtnCerrar_Click" BorderThickness="0">
                     <materialDesign:PackIcon Kind="WindowClose"/>
                 </Button>
             </StackPanel>
         </Border>
-        <Border Grid.Row="1">
-            <StackPanel Background="Azure" Orientation="Horizontal" VerticalAlignment="Center">
+      
+        <Border Grid.Row="1" Background="Silver" BorderBrush="#FF1B64CF" BorderThickness="1" >
+            <StackPanel  Orientation="Horizontal" VerticalAlignment="Center">
                 <Button Name="btnListado" Content="Listado" Margin="5 0 5 0" Click="BtnListado_Click" MouseEnter="BtnListado_MouseEnter" MouseLeave="BtnListado_MouseLeave"/>
                 <Button Name="btnCategoria" Content="Mantenimiento" Click="BtnCategoria_Click"/>
             </StackPanel>
             
         </Border>
-        <Border Name="PanelListado" Grid.Row="1" Visibility="Hidden">
+        <Border Name="PanelListado" Grid.Row="2" Visibility="Hidden">
             <Grid Background="Green">
                 
             </Grid>
         </Border>
-        <Border Name="PanelMantenimiento" Grid.Row="1" Visibility="Hidden">
+        <Border Name="PanelMantenimiento" Grid.Row="2" Visibility="Hidden">
             <Grid Background="Crimson">
 
             </Grid>

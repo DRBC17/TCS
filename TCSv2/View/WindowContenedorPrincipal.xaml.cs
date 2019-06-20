@@ -43,10 +43,7 @@ namespace TCSv2.View
             this.Close();
         }
 
-        private void Button_GotFocus(object sender, RoutedEventArgs e)
-        {
-            
-        }
+    
 
        
         private void BtnCategoria_Click(object sender, RoutedEventArgs e)
@@ -55,6 +52,8 @@ namespace TCSv2.View
             ventana.Show();
            
         }
+
+        #region Efectos Brillo al Pasar el Mouse
 
         private void BtnCategoria_MouseLeave(object sender, MouseEventArgs e)
         {
@@ -76,5 +75,93 @@ namespace TCSv2.View
             btnCategoria.Background = Brushes.Blue;
            
         }
+
+        private void BtnCerrar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnCerrar.Background = Brushes.Crimson;
+        }
+
+        private void BtnCerrar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnCerrar.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        private void BtnMin_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnMin.Background = Brushes.Blue;
+        }
+
+        private void BtnMin_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnMin.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        private void BtnAticulos_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnAticulos.Background = Brushes.Blue;
+        }
+
+        private void BtnVentas_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnVentas.Background = Brushes.Blue;
+        }
+
+        private void BtnVentas_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnVentas.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        private void BtnClientes_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnClientes.Background = Brushes.Blue;
+        }
+
+        private void BtnClientes_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnClientes.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        private void BtnCpmpras_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnCpmpras.Background = Brushes.Blue;
+        }
+
+        private void BtnCpmpras_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnCpmpras.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        private void BtnProveedores_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnProveedores.Background = Brushes.Blue;
+        }
+
+        private void BtnProveedores_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnProveedores.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        private void BtnUsuarios_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnUsuarios.Background = Brushes.Blue;
+        }
+
+        private void BtnUsuarios_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnUsuarios.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        private void BtnCStock_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnCStock.Background = Brushes.Blue;
+        }
+
+        private void BtnCStock_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnCStock.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+        }
+
+        #endregion
+
     }
 }
