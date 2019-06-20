@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TCSv2.View;
+using TCSv2;
 
 namespace TCSv2.View.Windows_Children
 {
@@ -42,7 +43,15 @@ namespace TCSv2.View.Windows_Children
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
+            WindowContenedorPrincipal VentanaPrincipal = new WindowContenedorPrincipal();
+            VentanaPrincipal.categoriaPush = false;
+            VentanaPrincipal.btnCategoria.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+           // MessageBox.Show("Estado de CategoriaPush "+ VentanaPrincipal.categoriaPush.ToString());
             this.Close();
+            
+            
+
+
         }
         private void BtnMax_Click(object sender, RoutedEventArgs e)
         {

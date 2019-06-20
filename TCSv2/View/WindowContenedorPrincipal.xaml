@@ -134,8 +134,8 @@
                 </Button>
 
 
-                <Button Name="btnCerrarSession" Margin="5" Background="Transparent" Style="{StaticResource MaterialDesignFloatingActionLightButton}" Width="70" Height="70" BorderThickness="3" BorderBrush="#FF1B64CF" Click="BtnCerrarSession_Click" >
-                        <Image Source="/Assets/salir_3.png" Width="65" Height="65"/>
+                <Button Name="btnCerrarSession" Margin="3" Background="Transparent" Width="85" Height="75" BorderThickness="0" BorderBrush="White" Click="BtnCerrarSession_Click" >
+                        <Image Source="/Assets/salir_3.png" Width="55" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                  </Button>
                 
             </StackPanel>

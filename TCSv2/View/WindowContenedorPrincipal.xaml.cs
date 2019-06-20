@@ -16,14 +16,37 @@ using TCSv2.View.Windows_Children;
 
 namespace TCSv2.View
 {
+
     /// <summary>
     /// Lógica de interacción para WindowContenedorPrincipal.xaml
     /// </summary>
     public partial class WindowContenedorPrincipal : Window
     {
+        public bool categoriaPush;
+        public bool articuloPush;
+        public bool ventasPush;
+        public bool clientesPush;
+        public bool comprasPush;
+        public bool proveedoresPush;
+        public bool usuariosPush;
+        public bool cStockPush;
+
         public WindowContenedorPrincipal()
         {
             InitializeComponent();
+            Inicializar_Push();
+        }
+
+        public void Inicializar_Push()
+        {
+            categoriaPush = false;
+            articuloPush = false;
+            ventasPush = false;
+            clientesPush = false;
+            comprasPush = false;
+            proveedoresPush = false;
+            usuariosPush = false;
+            cStockPush = false;
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -49,7 +72,10 @@ namespace TCSv2.View
         private void BtnCategoria_Click(object sender, RoutedEventArgs e)
         {
             Categoria ventana = new Categoria();
+            ventana.Owner = this;
             ventana.Show();
+            btnCategoria.Background = Brushes.Blue;
+           // categoriaPush = true;
            
         }
 
@@ -57,9 +83,12 @@ namespace TCSv2.View
 
         private void BtnCategoria_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnCategoria.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
-
-            // Background = "#FF1B64CF" 27, 100, 207
+           // MessageBox.Show("Estado de CategoriaPush " + categoriaPush.ToString());
+            if (categoriaPush == false)
+            {
+                
+                btnCategoria.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
+            }
         }
 
 
