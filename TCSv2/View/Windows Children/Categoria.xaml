@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:TCSv2.View.Windows_Children"
         mc:Ignorable="d"
         Title="Categoria" Height="670" Width="1075" WindowStartupLocation="Manual" Top="130" Left="295" ResizeMode="NoResize" WindowStyle="None" BorderBrush="#FF1B64CF" BorderThickness="2">
@@ -30,14 +30,34 @@
       
         <Border Grid.Row="1" Background="Silver" BorderBrush="#FF1B64CF" BorderThickness="1" >
             <StackPanel  Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Name="btnListado" Content="Listado" Margin="5 0 5 0" Click="BtnListado_Click" MouseEnter="BtnListado_MouseEnter" MouseLeave="BtnListado_MouseLeave"/>
-                <Button Name="btnMantenimiento" Content="Mantenimiento" Click="BtnCategoria_Click" MouseEnter="BtnMantenimiento_MouseEnter" MouseLeave="BtnMantenimiento_MouseLeave"/>
+                <Button Name="btnListado" Content="Listado" Margin="5 0 5 0" Click="BtnListado_Click" MouseEnter="BtnListado_MouseEnter" MouseLeave="BtnListado_MouseLeave" Background="#FF1B64CF"/>
+                <Button Name="btnMantenimiento" Content="Mantenimiento" Click="BtnCategoria_Click" MouseEnter="BtnMantenimiento_MouseEnter" MouseLeave="BtnMantenimiento_MouseLeave" Background="#FF1B64CF"/>
             </StackPanel>
             
         </Border>
-        <Border Name="PanelListado" Grid.Row="2" Visibility="Hidden">
-            <Grid Background="Green">
-                
+        <Border Name="PanelListado" Grid.Row="2" Visibility="Visible" Width="900">
+            <Grid Background="White">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Name="txtNombre" Width="250" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue"/>
+                        <Button Name="btnLBuscarCategoria" Background="#FF1B64CF" Margin="15 0 0 0" Width="80" Height="50">
+                            <StackPanel Orientation="Vertical" >
+                                <materialDesign:PackIcon Kind="Search" Width="40" Height="40" Margin="5"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnLEliminarCategoria" Background="#FF1B64CF" Margin="470 0 0 0" Width="80" Height="50">
+                            <StackPanel Orientation="Vertical" >
+                                <materialDesign:PackIcon Kind="Delete" Width="40" Height="40" Margin="5"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="40">
+                        <!--Espacio Para Total de Registros -->
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="400" Background="Gray" Name="DataGridSize">
+                        
+                    </StackPanel>
+                </StackPanel>
             </Grid>
         </Border>
         <Border Name="PanelMantenimiento" Grid.Row="2" Visibility="Hidden">

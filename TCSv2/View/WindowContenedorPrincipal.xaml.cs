@@ -83,7 +83,7 @@ namespace TCSv2.View
 
         private void BtnCategoria_MouseLeave(object sender, MouseEventArgs e)
         {
-           // MessageBox.Show("Estado de CategoriaPush " + categoriaPush.ToString());
+          
             if (categoriaPush == false)
             {
                 
