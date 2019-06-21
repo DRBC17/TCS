@@ -64,6 +64,9 @@
     <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
       <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows Children\Articulo.xaml.cs">
+      <DependentUpon>Articulo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows Children\Categoria.xaml.cs">
       <DependentUpon>Categoria.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\WindowContenedorPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows Children\Articulo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

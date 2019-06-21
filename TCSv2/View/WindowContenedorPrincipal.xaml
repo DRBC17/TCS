@@ -85,7 +85,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Name="btnAticulos" Margin="5" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="280" Height="60" MouseLeave="BtnAticulos_MouseLeave" MouseEnter="BtnAticulos_MouseEnter">
+                <Button Name="btnAticulos" Margin="5" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="280" Height="60" MouseLeave="BtnAticulos_MouseLeave" MouseEnter="BtnAticulos_MouseEnter" Click="BtnAticulos_Click">
                     <StackPanel Orientation="Horizontal" Width="250">
                         <Image Source="/Assets/Articulos.png" Width="45" Height="50" Margin="0 0 10 0"/>
                         <TextBlock FontSize="28" Foreground="White">Articulos</TextBlock>

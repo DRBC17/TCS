@@ -193,5 +193,11 @@ namespace TCSv2.View
 
         #endregion
 
+        private void BtnAticulos_Click(object sender, RoutedEventArgs e)
+        {
+            Articulo ventana = new Articulo(); 
+            ventana.Owner = this;
+            ventana.Show();
+        }
     }
 }
