@@ -69,16 +69,7 @@ namespace TCSv2.View
     
 
        
-        private void BtnCategoria_Click(object sender, RoutedEventArgs e)
-        {
-            Categoria ventana = new Categoria();
-            ventana.Owner = this;
-            ventana.Show();
-            btnCategoria.Background = Brushes.Blue;
-            //btnCategoria.IsEnabled = false;
-           // categoriaPush = true;
-           
-        }
+     
 
         #region Efectos Brillo al Pasar el Mouse
 
@@ -193,9 +184,27 @@ namespace TCSv2.View
 
         #endregion
 
+        private void BtnCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            Categoria ventana = new Categoria();
+            ventana.Owner = this;
+            ventana.Show();
+            btnCategoria.Background = Brushes.Blue;
+            //btnCategoria.IsEnabled = false;
+            // categoriaPush = true;
+
+        }
+
         private void BtnAticulos_Click(object sender, RoutedEventArgs e)
         {
             Articulo ventana = new Articulo(); 
+            ventana.Owner = this;
+            ventana.Show();
+        }
+
+        private void BtnVentas_Click(object sender, RoutedEventArgs e)
+        {
+            Ventas ventana = new Ventas();
             ventana.Owner = this;
             ventana.Show();
         }
