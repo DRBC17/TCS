@@ -126,8 +126,12 @@ namespace TCSv2.View.Windows_Children
         {
             btnMantenimiento.Background = new SolidColorBrush(Color.FromRgb(27, 100, 207));
         }
+
         #endregion
 
-
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

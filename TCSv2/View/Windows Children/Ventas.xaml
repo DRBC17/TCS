@@ -18,7 +18,7 @@
 
         <!--#region Barra Superior De Herramientas-->
 
-        <Border Grid.Row="0" Background="#FF1B64CF">
+        <Border Grid.Row="0" Background="#FF1B64CF"  MouseLeftButtonDown="Border_MouseLeftButtonDown">
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Name="btnMax" Background="#FF1B64CF" Visibility="Visible" Click="BtnMax_Click" MouseEnter="BtnMax_MouseEnter"  MouseLeave="BtnMax_MouseLeave" BorderThickness="0">
@@ -94,14 +94,54 @@
         <!--#region Panel Mantenimiento-->
         <Border Name="PanelMantenimiento" Grid.Row="2" Visibility="Visible">
             <Grid Background="White">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+               
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Orientation="Vertical" Margin="15" HorizontalAlignment="Center">
-                        <TextBox Name="txtNombreMantenimiento" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="41 0 0 15"/>
-                        <TextBox  Height="150" Width="250" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Detalle" materialDesign:HintAssist.IsFloating="False" Background="#FF1B64CF" Foreground="White" FontSize="25"></TextBox>
+                        
+                        <ComboBox Width="200" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Comprobante" materialDesign:HintAssist.IsFloating="True" Margin=" 0 0 120 25" >
+                            <ComboBoxItem Name="cbi1">Item1</ComboBoxItem>
+                            <ComboBoxItem Name="cbi2">Item2</ComboBoxItem>
+                            <ComboBoxItem Name="cbi3">Item3</ComboBoxItem>
+                        </ComboBox>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="txtArticulo" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Articulo" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="41 0 0 15"/>
+                            <Button Name="btnBuscarArticulo" Margin="5 0 0 0">
+                                <materialDesign:PackIcon Kind="Search" Width="25" Height="25"/>
+                            </Button>
+                        </StackPanel>
+                        <TextBox Name="txtCantidadVentas" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 15 15"/>
 
+                        <TextBox Name="txtCodigoVentas" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Codigo Ventas" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 15 15"/>
+                
+                       
                     </StackPanel>
 
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="txtCliente" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Cliente" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="41 0 0 15"/>
+                            <Button Name="btnBuscarCliente" Margin="5 0 0 0">
+                                <materialDesign:PackIcon Kind="Search" Width="25" Height="25"/>
+                            </Button>
+                            <StackPanel Orientation="Vertical">
+                                <DatePicker Width="150" FontSize="20"></DatePicker>
+                                <TextBox Name="txtISV" Width="100" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Cliente" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="41 0 0 15"/>
 
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+
+                            <StackPanel Orientation="Vertical">
+                                <TextBox Name="txtPrecioCompra" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Precio Compra" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 190 15"/>
+                                <TextBox Name="txtPrecioVenta" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 190 15"/>
+
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBox Name="txtDescuento" Width="150" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Descuento" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 190 15"/>
+                                
+                            </StackPanel>
+                        </StackPanel>
+                        
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Border>
