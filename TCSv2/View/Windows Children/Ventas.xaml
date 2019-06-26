@@ -18,7 +18,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         <!--#region Barra Superior De Herramientas-->
@@ -47,6 +47,7 @@
 
                 <Button Name="btnListado" Content="Listado" Margin="5 0 5 0" Click="BtnListado_Click" MouseEnter="BtnListado_MouseEnter" MouseLeave="BtnListado_MouseLeave" Background="#FF1B64CF"/>
                 <Button Name="btnMantenimiento" Content="Mantenimiento" Click="BtnMantenimiento_Click" MouseEnter="BtnMantenimiento_MouseEnter" MouseLeave="BtnMantenimiento_MouseLeave" Background="#FF1B64CF"/>
+            
             </StackPanel>
 
         </Border>
@@ -97,10 +98,52 @@
         <!--#endregion-->
 
         <!--#region Panel Mantenimiento-->
-        <Border Name="PanelMantenimiento" Grid.Row="2" Visibility="Visible">
-          
+        <Border Name="PanelMantenimientoPart1" Visibility="Visible"  Grid.Column="0" Grid.Row="2">
+            <StackPanel Orientation="Vertical" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center" >
+               
+                <ComboBox Width="200" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Comprobante" materialDesign:HintAssist.IsFloating="True" Margin=" 0 0 120 25" >
+                    <ComboBoxItem Name="cbi1">Item1</ComboBoxItem>
+                    <ComboBoxItem Name="cbi2">Item2</ComboBoxItem>
+                    <ComboBoxItem Name="cbi3">Item3</ComboBoxItem>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal" Width="280" Margin="0 10 45 0">
+                    <TextBox Name="txtArticulo" Width="200" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Articulo" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 15 15"/>
+                    <Button Name="btnBuscarArticulo" Margin="5 0 0 0">
+                        <materialDesign:PackIcon Kind="Search" Width="25" Height="25"/>
+                    </Button>
+                </StackPanel>
+                <TextBox Name="txtCantidadVentas" Width="150" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 180 15"/>
+
+               
+
+            </StackPanel>
         </Border>
-        
+        <Border Name="PanelMantenimientoPart2" Visibility="Visible"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="txtCliente" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Cliente" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 0 15"/>
+                    <Button Name="btnBuscarCliente" Margin="5 0 0 0">
+                        <materialDesign:PackIcon Kind="Search" Width="25" Height="25"/>
+                    </Button>
+                  
+                </StackPanel>
+                
+                        <TextBox Name="txtPrecioCompra" Width="190" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Precio Compra" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 180 15"/>
+                <TextBox Name="txtPrecioVenta" Width="190" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 180 15"/>
+
+            </StackPanel>
+
+            
+        </Border>
+
+        <Border Name="PanelMantenimientoPart3" Visibility="Visible"  Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical">
+                <DatePicker Width="150" FontSize="20"/>
+                <TextBox Name="txtDescuento" Width="150" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Descuento" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 30 0 15"/>
+
+            </StackPanel>
+        </Border>
+
         <Border Grid.Row="3" Grid.ColumnSpan="3" Name="PanelMantenimientoBotones" Visibility="Visible">
             <StackPanel Orientation="Horizontal" Height="100" HorizontalAlignment="Left">
                 <!--Espacio Para Total de Registros -->
@@ -120,12 +163,6 @@
                         <TextBlock FontSize="25" Margin="5">Guardar</TextBlock>
                     </StackPanel>
                 </Button>
-                <!--<Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Edit" Width="40" Height="40"/>
-                        <TextBlock FontSize="25" Margin="5">Editar</TextBlock>
-                    </StackPanel>
-                </Button>-->
                 <Button Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Cancel" Width="40" Height="40"/>

@@ -30,13 +30,14 @@ namespace TCSv2.View.Windows_Children
 
             PanelListado.Visibility = Visibility.Visible;
             PanelMantenimientoBotones.Visibility = Visibility.Hidden;
-            PanelMantenimiento.Visibility = Visibility.Hidden;
-
+            PanelMantenimientoPart1.Visibility = Visibility.Hidden;
+            PanelMantenimientoPart2.Visibility = Visibility.Hidden;
         }
 
         private void BtnMantenimiento_Click(object sender, RoutedEventArgs e)
         {
-            PanelMantenimiento.Visibility = Visibility.Visible;
+            PanelMantenimientoPart1.Visibility = Visibility.Visible;
+            PanelMantenimientoPart2.Visibility = Visibility.Visible;
             PanelMantenimientoBotones.Visibility = Visibility.Visible;
             PanelListado.Visibility = Visibility.Hidden;
         }
