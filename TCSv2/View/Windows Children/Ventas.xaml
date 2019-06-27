@@ -53,7 +53,7 @@
         </Border>
 
         <!--#region Panel Listado-->
-        <Border Name="PanelListado" Grid.RowSpan="5" Visibility="Hidden" Width="1000" Margin="0 70">
+        <Border Name="PanelListado" Grid.RowSpan="5" Grid.ColumnSpan="3" Visibility="Visible" Width="1000" Margin="0 70">
             <Grid Background="White">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" >
@@ -98,8 +98,8 @@
         <!--#endregion-->
 
         <!--#region Panel Mantenimiento-->
-        <Border Name="PanelMantenimientoPart1" Visibility="Visible"  Grid.Column="0" Grid.Row="2">
-            <StackPanel Orientation="Vertical" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Border Name="PanelMantenimientoPart1" Visibility="Hidden"  Grid.Column="0" Grid.Row="2">
+            <StackPanel Orientation="Vertical" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Top" >
                
                 <ComboBox Width="200" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Comprobante" materialDesign:HintAssist.IsFloating="True" Margin=" 0 0 120 25" >
                     <ComboBoxItem Name="cbi1">Item1</ComboBoxItem>
@@ -118,7 +118,7 @@
 
             </StackPanel>
         </Border>
-        <Border Name="PanelMantenimientoPart2" Visibility="Visible"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Name="PanelMantenimientoPart2" Visibility="Hidden"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical" >
                 <StackPanel Orientation="Horizontal">
                     <TextBox Name="txtCliente" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Cliente" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 0 15"/>
@@ -127,24 +127,42 @@
                     </Button>
                   
                 </StackPanel>
-                
-                        <TextBox Name="txtPrecioCompra" Width="190" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Precio Compra" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 180 15"/>
-                <TextBox Name="txtPrecioVenta" Width="190" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 180 15"/>
+                <TextBox Name="txtNumero" Width="190" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Numero" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 180 5"/>
+
+                <TextBox Name="txtPrecioCompra" Width="190" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Precio Compra" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 180 5"/>
+                <TextBox Name="txtPrecioVenta" Width="190" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 180 5"/>
 
             </StackPanel>
 
             
         </Border>
 
-        <Border Name="PanelMantenimientoPart3" Visibility="Visible"  Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Name="PanelMantenimientoPart3" Visibility="Hidden"  Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical">
-                <DatePicker Width="150" FontSize="20"/>
-                <TextBox Name="txtDescuento" Width="150" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Descuento" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 30 0 15"/>
-
+                <DatePicker Name="FechaSys" Width="150" FontSize="20"/>
+              
+                <TextBox Name="txtISV" Width="100" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="ISV" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 30 0 15"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="txtDescuento" Width="150" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Descuento" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 30 0 15"/>
+                    <StackPanel Orientation="Vertical" Margin="5">
+                        <Button>
+                            <materialDesign:PackIcon Kind="Plus"/>
+                        </Button>
+                        <Button Margin="0 30 0 0">
+                            <materialDesign:PackIcon Kind="WindowMinimize"/>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
         </Border>
 
-        <Border Grid.Row="3" Grid.ColumnSpan="3" Name="PanelMantenimientoBotones" Visibility="Visible">
+
+        <Border Name="PanelMantenimientoPart4" Grid.Row="2" Grid.ColumnSpan="3" Visibility="Hidden"  Margin="0,244,0,0">
+            <Grid Background="Gray" Width="1000" Height="190">
+                
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.ColumnSpan="3" Name="PanelMantenimientoBotones" Visibility="Hidden">
             <StackPanel Orientation="Horizontal" Height="100" HorizontalAlignment="Left">
                 <!--Espacio Para Total de Registros -->
                 <StackPanel Orientation="Horizontal" Background="Gray" Margin="55 0 25 0"  Width="300" Height="80">
