@@ -137,7 +137,7 @@ namespace TCSv2.View.Windows_Children
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            //DragMove();
         }
     }
 }
