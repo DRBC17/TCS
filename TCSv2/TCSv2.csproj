@@ -70,6 +70,9 @@
     <Compile Include="View\Windows Children\Categoria.xaml.cs">
       <DependentUpon>Categoria.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows Children\Clientes.xaml.cs">
+      <DependentUpon>Clientes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows Children\Ventas.xaml.cs">
       <DependentUpon>Ventas.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows Children\Categoria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows Children\Clientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

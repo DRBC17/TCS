@@ -208,5 +208,13 @@ namespace TCSv2.View
             ventana.Owner = this;
             ventana.Show();
         }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+            Clientes ventana = new Clientes();
+            ventana.Owner = this;
+            ventana.Show();
+            
+        }
     }
 }
