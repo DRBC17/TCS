@@ -22,7 +22,7 @@ namespace TCSv2.View.Windows_Children
         public Clientes()
         {
             InitializeComponent();
-            FechaSys.Text = DateTime.Now.ToString("dd/MM/yyyy");
+           
         }
 
         private void BtnListado_Click(object sender, RoutedEventArgs e)
@@ -32,17 +32,15 @@ namespace TCSv2.View.Windows_Children
             PanelListado.Visibility = Visibility.Visible;
             PanelMantenimientoBotones.Visibility = Visibility.Hidden;
             PanelMantenimientoPart1.Visibility = Visibility.Hidden;
-            PanelMantenimientoPart2.Visibility = Visibility.Hidden;
-            PanelMantenimientoPart3.Visibility = Visibility.Hidden;
-            PanelMantenimientoPart4.Visibility = Visibility.Hidden;
+           
+           
         }
 
         private void BtnMantenimiento_Click(object sender, RoutedEventArgs e)
         {
             PanelMantenimientoPart1.Visibility = Visibility.Visible;
-            PanelMantenimientoPart2.Visibility = Visibility.Visible;
-            PanelMantenimientoPart3.Visibility = Visibility.Visible;
-            PanelMantenimientoPart4.Visibility = Visibility.Visible;
+         
+           
             PanelMantenimientoBotones.Visibility = Visibility.Visible;
             PanelListado.Visibility = Visibility.Hidden;
         }
