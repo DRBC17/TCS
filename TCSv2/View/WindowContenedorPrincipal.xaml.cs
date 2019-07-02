@@ -216,5 +216,12 @@ namespace TCSv2.View
             ventana.Show();
             
         }
+
+        private void BtnProveedores_Click(object sender, RoutedEventArgs e)
+        {
+            Proveedores ventana = new Proveedores();
+            ventana.Owner = this;
+            ventana.Show();
+        }
     }
 }

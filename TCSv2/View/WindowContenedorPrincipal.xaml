@@ -112,7 +112,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Name="btnProveedores" Margin="5" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="280" Height="60" MouseEnter="BtnProveedores_MouseEnter" MouseLeave="BtnProveedores_MouseLeave"> 
+                <Button Name="btnProveedores" Margin="5" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="280" Height="60" MouseEnter="BtnProveedores_MouseEnter" MouseLeave="BtnProveedores_MouseLeave" Click="BtnProveedores_Click"> 
                     <StackPanel Orientation="Horizontal" Width="250">
                         <Image Source="/Assets/Proveedor.png" Width="45" Height="50" Margin="0 0 10 0"/>
                         <TextBlock FontSize="28" Foreground="White">Proveedores</TextBlock>
