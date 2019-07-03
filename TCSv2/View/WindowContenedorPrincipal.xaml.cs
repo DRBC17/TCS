@@ -223,5 +223,14 @@ namespace TCSv2.View
             ventana.Owner = this;
             ventana.Show();
         }
+
+      
+
+        private void BtnCompras_Click(object sender, RoutedEventArgs e)
+        {
+            Compras ventana = new Compras();
+            ventana.Owner = this;
+            ventana.Show();
+        }
     }
 }
