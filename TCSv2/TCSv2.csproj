@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
       <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
     </Compile>

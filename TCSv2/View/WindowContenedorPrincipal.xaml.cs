@@ -224,13 +224,13 @@ namespace TCSv2.View
             ventana.Show();
         }
 
-      
-
-        private void BtnCompras_Click(object sender, RoutedEventArgs e)
+        private void BtnCpmpras_Click(object sender, RoutedEventArgs e)
         {
-            Compras ventana = new Compras();
-            ventana.Owner = this;
-            ventana.Show();
+
+                Compras ventana = new Compras();
+                ventana.Owner = this;
+                ventana.Show();
+            
         }
     }
 }
