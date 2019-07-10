@@ -119,7 +119,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Name="btnUsuarios" Margin="5" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="280" Height="60" MouseEnter="BtnUsuarios_MouseEnter" MouseLeave="BtnUsuarios_MouseLeave">
+                <Button Name="btnUsuarios" Margin="5" Background="#FF1B64CF" BorderBrush="White" BorderThickness="2" Style="{StaticResource MaterialDesignRaisedButton}" Width="280" Height="60" MouseEnter="BtnUsuarios_MouseEnter" MouseLeave="BtnUsuarios_MouseLeave" Click="BtnUsuarios_Click">
                     <StackPanel Orientation="Horizontal" Width="250">
                         <Image Source="/Assets/Clientes.png" Width="45" Height="50" Margin="0 0 10 0"/>
                         <TextBlock FontSize="28" Foreground="White">Usuarios</TextBlock>
