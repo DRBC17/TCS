@@ -77,6 +77,9 @@
     <Compile Include="View\Windows Children\Compras.xaml.cs">
       <DependentUpon>Compras.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows Children\ConsultaStock.xaml.cs">
+      <DependentUpon>ConsultaStock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows Children\Proveedores.xaml.cs">
       <DependentUpon>Proveedores.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows Children\Compras.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows Children\ConsultaStock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

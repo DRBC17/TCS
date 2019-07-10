@@ -239,5 +239,12 @@ namespace TCSv2.View
             ventana.Owner = this;
             ventana.Show();
         }
+
+        private void BtnCStock_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultaStock ventana = new ConsultaStock();
+            ventana.Owner = this;
+            ventana.Show();
+        }
     }
 }

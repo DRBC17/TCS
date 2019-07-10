@@ -102,7 +102,7 @@
                     <TextBox Name="txtUsuario" Width="250" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 0 15" HorizontalAlignment="Left"/>
 
 
-                    <PasswordBox Name="txtContra" Width="250" Background="White" Style="{StaticResource MaterialDesignFloatingHintPasswordBox }" materialDesign:HintAssist.Hint="Contrase" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="160 0 0 15" HorizontalAlignment="Left"/>
+                    <PasswordBox Name="txtContra" Width="250" Background="White" Style="{StaticResource MaterialDesignFloatingHintPasswordBox }" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="160 0 0 15" HorizontalAlignment="Left"/>
 
 
                 </StackPanel>
