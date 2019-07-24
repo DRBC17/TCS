@@ -22,6 +22,7 @@ namespace TCSv2.View.Windows_Children
         public Compras()
         {
             InitializeComponent();
+            FechaSys.Text = DateTime.Now.ToString();
         }
 
 

@@ -62,6 +62,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="TecnoCellDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TecnoCellDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
       <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
     </Compile>
@@ -160,6 +165,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TecnoCellDataSet.xsc">
+      <DependentUpon>TecnoCellDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TecnoCellDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TecnoCellDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TecnoCellDataSet.xss">
+      <DependentUpon>TecnoCellDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
