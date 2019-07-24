@@ -101,10 +101,8 @@
         <Border Name="PanelMantenimientoPart1" Visibility="Visible"  Grid.Column="0" Grid.Row="2">
             <StackPanel Orientation="Vertical" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Top" >
 
-                <ComboBox Width="200" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Comprobante" materialDesign:HintAssist.IsFloating="True" Margin=" 0 0 120 25" >
-                    <ComboBoxItem Name="cbi1">Item1</ComboBoxItem>
-                    <ComboBoxItem Name="cbi2">Item2</ComboBoxItem>
-                    <ComboBoxItem Name="cbi3">Item3</ComboBoxItem>
+                <ComboBox Name="cbComprobante" Width="200" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Comprobante" materialDesign:HintAssist.IsFloating="True" Margin=" 0 0 120 25" >
+             
                 </ComboBox>
                 <StackPanel Orientation="Horizontal" Width="280" Margin="0 10 45 0">
                     <ComboBox Name="cbArticulo" Width="200" Background="White" Style="{StaticResource MaterialDesignFloatingHintComboBox }" materialDesign:HintAssist.Hint="Articulo" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 15 15"/>
@@ -154,19 +152,25 @@
                     <TextBlock Width="130" FontSize="40" FontFamily="DS-Digital" VerticalAlignment="Center" Margin="25 0 0 0" Foreground="GreenYellow">TOTAL:</TextBlock>
                     <TextBlock Width="200" FontSize="60" FontFamily="DS-Digital" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="GreenYellow">0.00</TextBlock>
                 </StackPanel>
-                <Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button x:Name="btnNuevo" Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Click="BtnNuevo_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="FilePlus" Width="40" Height="40" />
                         <TextBlock FontSize="25" Margin="5">Nuevo</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button x:Name="btnGuardar" Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Click="BtnGuardar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ContentSave" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Guardar</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF">
+                <Button x:Name="btnAgregar" Width="auto" Height="60" Margin="15 0 15 0" Background="#FF1B64CF" Click="BtnAgregar_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Plus" Width="40" Height="40"/>
+                    
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnCancelar" Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF" Click="BtnCancelar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Cancel" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Cancelar</TextBlock>
