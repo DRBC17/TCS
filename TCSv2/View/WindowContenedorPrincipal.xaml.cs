@@ -30,11 +30,25 @@ namespace TCSv2.View
         public bool proveedoresPush;
         public bool usuariosPush;
         public bool cStockPush;
+        //public int Cargo=1;
 
         public WindowContenedorPrincipal()
         {
             InitializeComponent();
             Inicializar_Push();
+            //MessageBox.Show(Cargo.ToString());
+            //switch (Cargo)
+            //{
+            //    case 1:
+            //        btnUsuarios.IsEnabled = false;
+            //        break;
+            //    case 2:
+            //        btnUsuarios.IsEnabled = true;
+            //        break;
+            //    default:
+            //        btnUsuarios.IsEnabled = false;
+            //        break;
+            //}
         }
 
         public void Inicializar_Push()

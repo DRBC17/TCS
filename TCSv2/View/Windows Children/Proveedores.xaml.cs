@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +21,52 @@ namespace TCSv2.View.Windows_Children
     /// </summary>
     public partial class Proveedores : Window
     {
-
+        SqlConnection sqlconnection;
         public Proveedores()
         {
             InitializeComponent();
-          
+            string connectionString = @"server=(local)\SQLEXPRESS;Initial Catalog=TecnoCell;Integrated Security=True";
+            sqlconnection = new SqlConnection(connectionString);
+
+            Mostrar();
+        }
+
+        private void Mostrar()
+        {
+            try
+            {
+
+                string query = "SELECT * FROM Proveedor";
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlconnection);
+
+                using (sqlDataAdapter)
+                {
+
+                    DataTable tabla1 = new DataTable();
+
+
+                    sqlDataAdapter.Fill(tabla1);
+
+                    dgllenar.DisplayMemberPath = "Id_Proveedor";
+                    dgllenar.DisplayMemberPath = "Nombre";
+                    dgllenar.DisplayMemberPath = "Sector_Comercial";
+                    dgllenar.DisplayMemberPath = "Tipo_Documento";
+                    dgllenar.DisplayMemberPath = "Documento";
+                    dgllenar.DisplayMemberPath = "Direccion";
+                    dgllenar.DisplayMemberPath = "Telefono";
+                    dgllenar.DisplayMemberPath = "Correo";
+                    dgllenar.DisplayMemberPath = "Fecha";
+
+
+                    dgllenar.SelectedValuePath = "Id_Proveedor";
+                    dgllenar.ItemsSource = tabla1.DefaultView;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void BtnListado_Click(object sender, RoutedEventArgs e)
@@ -48,9 +91,6 @@ namespace TCSv2.View.Windows_Children
         {
 
             this.Close();
-
-
-
 
         }
         private void BtnMax_Click(object sender, RoutedEventArgs e)
@@ -136,6 +176,242 @@ namespace TCSv2.View.Windows_Children
         {
             //DragMove();
         }
-    }
+
+        private void BtnLBuscarVentas_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "SELECT * FROM Proveedor WHERE Nombre = @nombre ";
+
+
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                using (sqlDataAdapter)
+                {
+
+                    sqlCommand.Parameters.AddWithValue("@nombre", txtbuscar.Text);
+
+
+                    DataTable tabla = new DataTable();
+
+
+                    sqlDataAdapter.Fill(tabla);
+
+                    dgllenar.DisplayMemberPath = "Id_Proveedor";
+                    dgllenar.DisplayMemberPath = "Nombre";
+                    dgllenar.DisplayMemberPath = "Sector_Comercial";
+                    dgllenar.DisplayMemberPath = "Tipo_Documento";
+                    dgllenar.DisplayMemberPath = "Documento";
+                    dgllenar.DisplayMemberPath = "Direccion";
+                    dgllenar.DisplayMemberPath = "Telefono";
+                    dgllenar.DisplayMemberPath = "Correo";
+                    dgllenar.DisplayMemberPath = "Fecha";
+
+
+                    dgllenar.SelectedValuePath = "Id_Proveedor";
+                    dgllenar.ItemsSource = tabla.DefaultView;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BtnLEliminarVentas_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtbuscar.Text == string.Empty)
+            {
+                MessageBox.Show("Debe ingresar un nombre");
+                txtbuscar.Focus();
+            }
+            else
+            {
+                try
+                {
+                    string query = "DELETE Proveedor WHERE Nombre =  @nombre";
+
+                    SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+
+
+
+                    sqlconnection.Open();
+
+                    sqlCommand.Parameters.AddWithValue("@nombre", txtbuscar.Text);
+                    sqlCommand.ExecuteNonQuery();
+
+
+
+
+                    MessageBox.Show("Se ha borrado exitosamente");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    sqlconnection.Close();
+                    Mostrar();
+                }
+            }
+        }
+        private void BtnNuevo_Click(object sender, RoutedEventArgs e)
+        {
+            txtApellido.Text = String.Empty;
+            txtDescripcion.Text = String.Empty;
+            txtNombre.Text = String.Empty;
+            txtCorreo.Text = String.Empty;
+            txtIdentidad.Text = String.Empty;
+            txtTelefono.Text = String.Empty;
+
+        }
+
+        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNombre.Text != string.Empty && txtApellido.Text != string.Empty && txtDescripcion.Text != string.Empty )
+            {
+                MessageBox.Show("Debe rellenar todos los campos vacios.");
+                txtNombre.Focus();
+
+            }
+            else
+            {
+                try
+                {
+                    string query = "INSERT INTO Proveedor(Nombre,Descripcion,Id_Categoria,Fecha) VALUES(@codigo,@nombre,@descripcion,@id_Categoria)";
+
+                    SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+
+                    sqlconnection.Open();
+                    //string f;
+                    //f = DateTime.Now.ToString();
+                    sqlCommand.Parameters.AddWithValue("@Apellido", txtApellido.Text);
+                    sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                    sqlCommand.Parameters.AddWithValue("@Identidad", txtIdentidad.Text);
+                    sqlCommand.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+                    sqlCommand.Parameters.AddWithValue("@Correo", txtCorreo.Text);
+                    sqlCommand.Parameters.AddWithValue("@Descripcion", txtDescripcion.Text);
+                    //sqlCommand.Parameters.AddWithValue("@fecha", f);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    sqlconnection.Close();
+                    Mostrar();
+                }
+            }
+        }
+
+
+        private void BtnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNombre.Text == string.Empty)
+            {
+                MessageBox.Show("Debes ingresar el nuevo nombre del proveedor en la caja de texto.");
+                txtNombre.Focus();
+            }
+            else
+            {
+                try
+                {
+                    string query = "UPDATE Proveedor SET Id_Proveedor,Nombre,Descripcion,Telefono, Correo, = @Id_Proveedor,@nombre,@descripcion,@Telefono,@Correo WHERE Id_Proveedor = @Id_Proveedor";
+                    //Articulo(Codigo,Nombre,Descripcion,Id_Categoria,Fecha) VALUES(@codigo,@nombre,@descripcion,@id_Categoria)
+                    SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+
+                    sqlconnection.Open();
+
+                    sqlCommand.Parameters.AddWithValue("@Apellido", txtApellido.Text);
+                    sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                    sqlCommand.Parameters.AddWithValue("@Identidad", txtIdentidad.Text);
+                    sqlCommand.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+                    sqlCommand.Parameters.AddWithValue("@Correo", txtCorreo.Text);
+                    sqlCommand.Parameters.AddWithValue("@Descripcion", txtDescripcion.Text);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    sqlconnection.Close();
+                    Mostrar();
+                }
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            txtApellido.Text = String.Empty;
+            txtDescripcion.Text = String.Empty;
+            txtNombre.Text = String.Empty;
+            txtCorreo.Text = String.Empty;
+            txtIdentidad.Text = String.Empty;
+            txtTelefono.Text = String.Empty;
+        }
+
+
+        //private void BtnEditar_Click(object sender, RoutedEventArgs e)
+        //{
+           /* if(txtNombre.Text == string.Empty)
+            {
+                MessageBox.Show("Debe ingresar un nombre");
+                txtNombre.Focus();
+            }
+            else
+            {
+                try
+                {
+                    string query = "SELECT * FROM Proveedor WHERE Nombre =  @nombre" +
+                        "Sector_Comercial = @sector_Comercial" + "Tipo_Documento = @tipo_Documento" 
+                        + "Documento = @descripcion" +  "Direccion =@direccion" + "Telefono = @telefono"
+                        + "Fecha = @fecha";
+
+                    SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                    sqlconnection.Open();
+                    sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                    sqlCommand.Parameters.AddWithValue("@nombre", txtApellido.Text);
+                    sqlCommand.Parameters.AddWithValue("@sector_comercial", txtDescripcion.Text);
+                    sqlCommand.Parameters.AddWithValue("@tipo_Documento", txtDescripcion.Text);
+                    sqlCommand.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
+                    sqlCommand.Parameters.AddWithValue("@direccion", txtNombre.Text);
+                    sqlCommand.Parameters.AddWithValue("@telefono", txtTelefono.Text);
+                    sqlCommand.Parameters.AddWithValue("@correo", txtCorreo.Text);
+                    sqlCommand.ExecuteNonQuery();
+
+
+
+
+                    MessageBox.Show("Se ha Editado exitosamente");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    sqlconnection.Close();
+                    Mostrar();
+                }
+            }*/
+        }
+
+       // private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+      //  {
+    //
+        //}
 }
+
 

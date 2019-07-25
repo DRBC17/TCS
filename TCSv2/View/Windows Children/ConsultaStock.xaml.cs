@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace TCSv2.View.Windows_Children
 {
@@ -19,8 +22,11 @@ namespace TCSv2.View.Windows_Children
     /// </summary>
     public partial class ConsultaStock : Window
     {
+        SqlConnection sqlconnection;
         public ConsultaStock()
         {
+            string connectionString = ConfigurationManager.ConnectionStrings["TCSv2.Properties.Settings.TecnoCellConnectionString"].ConnectionString;
+            sqlconnection = new SqlConnection(connectionString);
             InitializeComponent();
         }
 
@@ -128,6 +134,50 @@ namespace TCSv2.View.Windows_Children
         private void BtnMax_MouseEnter_1(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void BtnListado_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void BtnListado_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                sqlconnection.Open();
+                string query = "SELECT a.Id_Articulo as Id,a.Codigo,a.Nombre,a.Descripcion,a.Fecha,a.Stock,b.Nombre as Marca,b.Descripcion as Descripcion_Marca FROM Articulo a INNER JOIN Categoria b ON a.Id_Articulo=b.Id_Categoria";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlconnection);
+
+                using (sqlDataAdapter)
+                {
+                    DataTable tabla1 = new DataTable();
+
+                    sqlDataAdapter.Fill(tabla1);
+
+                    dgcstock.DisplayMemberPath = "Id";
+                    dgcstock.DisplayMemberPath = "Codigo";
+                    dgcstock.DisplayMemberPath = "Nombre";
+                    dgcstock.DisplayMemberPath = "Descripcion";
+                    dgcstock.DisplayMemberPath = "Fecha";
+                    dgcstock.DisplayMemberPath = "Stock";
+                    dgcstock.SelectedValuePath = "Marca";
+                    dgcstock.SelectedValuePath = "Descripcion de Marca";
+                    dgcstock.ItemsSource = tabla1.DefaultView;
+      
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlconnection.Close();
+            }
         }
     }
 }

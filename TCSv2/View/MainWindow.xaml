@@ -21,6 +21,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
+            <TextBox x:Name="txtCargo" Visibility="Visible"/>
         </StackPanel>
     </Grid>
 </Window>
