@@ -352,7 +352,7 @@ namespace TCSv2.View.Windows_Children
 
 
                     dgllenar.DisplayMemberPath = "Id_Venta";
-                    dgllenar.DisplayMemberPath = "Id_Empleado";
+                   // dgllenar.DisplayMemberPath = "Id_Empleado";
                     dgllenar.DisplayMemberPath = "Id_Cliente";
                     dgllenar.DisplayMemberPath = "Id_Comprobante";
                     dgllenar.DisplayMemberPath = "Id_Detalle_Venta";
@@ -420,47 +420,62 @@ namespace TCSv2.View.Windows_Children
             txtDescuento.Text = string.Empty;
             txtISV.Text = string.Empty;
             txtNumero.Text = string.Empty;
-            txtPrecioCompra.Text = string.Empty;
-            txtPrecioVenta.Text = string.Empty;
+            txtDetalle.Text = string.Empty;
+            txtPrecio.Text = string.Empty;
             cbComprobante.SelectedValue = null;
+            txttotal.Text = String.Format("0");
+            dgDetalle.Columns.Clear();
+            btnGuardar.IsEnabled = true;
+            btnAgregar.IsEnabled = false;
+            Mostrar();
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            //if (txtArticulo.Text == string.Empty && txtCantidadVentas.Text == string.Empty && txtCliente.Text == string.Empty && txtNumero.Text == string.Empty && txtPrecioCompra.Text == string.Empty && txtPrecioVenta.Text == string.Empty && lbcate.SelectedValue == null)
-            //{
-            //    MessageBox.Show("Debe rellenar todos los campos vacios.");
-            //    txtArticulo.Focus();
+            try
+            {
+                string query = "INSERT INTO Venta(Id_Cliente, Id_Comprobante,Serie, Id_ISV) VALUES( @Id_Cliente, @Id_Comprobante,@serie,@Id_ISV)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
 
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        string query = "INSERT INTO Venta (Id_Empleado,Id_Cliente,Id_Comprobante,Id_Detalle_Venta,Serie, Correlativo, Id_ISV) VALUES(@id_Empleado,@id_Cliente,@id_Comprobante,@id_Detalle_Venta,@serie,@correlativo,@id_ISV)";
+                // Abrir la conexión
+                sqlconnection.Open();
 
-            //        SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                // Reemplazar el parámetro con su valor respectivo
 
-            //        sqlconnection.Open();
-                    
-            //        sqlCommand.Parameters.AddWithValue("@id_Empleado", txt.Text);
-            //        sqlCommand.Parameters.AddWithValue("@id_Cliente", txtCliente.Text);
-            //        sqlCommand.Parameters.AddWithValue("@id_Comprobante", lbcate.SelectedValue.ToString());
-            //        sqlCommand.Parameters.AddWithValue("@id_Detalle_Venta",txtPrecioVenta.Text);
-            //        sqlCommand.Parameters.AddWithValue("@serie", txtSerie.Text);
-                   
-            //        sqlCommand.ExecuteNonQuery();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.ToString());
-            //    }
-            //    finally
-            //    {
-            //        sqlconnection.Close();
-            //        Mostrar();
-            //    }
-            //}
+                sqlCommand.Parameters.AddWithValue("@Id_Cliente", cbCliente.SelectedValue.ToString());
+                sqlCommand.Parameters.AddWithValue("@Id_Comprobante", cbComprobante.SelectedValue.ToString());
+                sqlCommand.Parameters.AddWithValue("@Id_ISV", "1");
+                sqlCommand.Parameters.AddWithValue("@serie", txtNumero.Text.ToString());
+               
+
+                // sqlCommand.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("DD/MM/YY"));
+                // Ejecutamos el query de inserción
+                // https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.executescalar
+
+
+
+                if (sqlCommand.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("La operación se ha completado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("La operación No se ha completado correctamente");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlconnection.Close();
+                // Actualizar el ListBox de Articulos
+                btnAgregar.IsEnabled = true;
+                btnGuardar.IsEnabled = false;
+
+            }
 
         }
 
@@ -472,9 +487,177 @@ namespace TCSv2.View.Windows_Children
             txtDescuento.Text = string.Empty;
             txtISV.Text = string.Empty;
             txtNumero.Text = string.Empty;
-            txtPrecioCompra.Text = string.Empty;
-            txtPrecioVenta.Text = string.Empty;
+            txtPrecio.Text = String.Empty;
+            txtDetalle.Text = String.Empty;
+ 
             cbComprobante.SelectedValue = null;
+            txttotal.Text = String.Format("0");
+            dgDetalle.Columns.Clear();
+            btnGuardar.IsEnabled = true;
+            btnAgregar.IsEnabled = false;
+            Mostrar();
+        }
+
+        private void BtnAgregar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "INSERT INTO Detalle_Venta(Id_Venta, Id_Articulo,Detalle,Precio,Cantidad,descuento) VALUES(@Id_Venta, @Id_Articulo,@Detalle,@Precio,@Cantidad,@descuento)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+
+                // Abrir la conexión
+
+
+                //Id_Venta, Id_Articulo,Detalle,Precio,Cantidad,descuento
+
+                sqlCommand.Parameters.AddWithValue("@Id_Venta", MostrarId());
+                sqlCommand.Parameters.AddWithValue("@Id_Articulo", cbArticulo.SelectedValue.ToString());
+                sqlCommand.Parameters.AddWithValue("@Detalle", txtDetalle.Text);
+                sqlCommand.Parameters.AddWithValue("@Precio", txtPrecio.Text);
+                sqlCommand.Parameters.AddWithValue("@Descuento", txtDescuento.Text);
+      
+                sqlCommand.Parameters.AddWithValue("@Cantidad", txtCantidadVentas.Text);
+
+
+
+                // sqlCommand.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("DD/MM/YY"));
+                // Ejecutamos el query de inserción
+                // https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.executescalar
+
+                sqlconnection.Open();
+
+                if (sqlCommand.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("La operación se ha completado correctamente");
+
+
+                }
+                else
+                {
+                    MessageBox.Show("La operación No se ha completado correctamente");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlconnection.Close();
+                // Actualizar el ListBox de Articulos
+                ListarDetalle_Compra();
+                MostrarTotal();
+                ListarArticulos();
+                txtCantidadVentas.Text = String.Empty;
+                txtPrecio.Text = String.Empty;
+                txtDetalle.Text = String.Empty;
+                txtDescuento.Text = String.Empty;
+
+            }
+        }
+
+        private void MostrarTotal()
+        {
+            double amt = 0;
+            try
+            {
+                string query = "SELECT SUM(Precio) FROM Detalle_Venta Where Id_Venta=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                sqlCommand.Parameters.AddWithValue("@Id", MostrarId());
+                sqlconnection.Open();
+                amt = (double)sqlCommand.ExecuteScalar();   //arror is at this part
+                sqlconnection.Close();
+                //total = total + int.Parse(txtPrecioCompra.Text);
+                //txttotal.Text = total.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                
+                txttotal.Text = amt.ToString();
+            }
+
+        }
+
+        private void ListarDetalle_Compra()
+        {
+
+            try
+            {
+
+                string query = "SELECT * FROM Detalle_Venta WHERE Id_Venta=@Id";
+
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlCommand.Parameters.AddWithValue("@Id", MostrarId());
+                using (sqlDataAdapter)
+                {
+
+                    DataTable tabla1 = new DataTable();
+
+
+                    sqlDataAdapter.Fill(tabla1);
+
+                    dgDetalle.DisplayMemberPath = "Id_Venta";
+                    dgDetalle.DisplayMemberPath = "Id_Articulo";
+                    dgDetalle.DisplayMemberPath = "Detalle";
+                    dgDetalle.DisplayMemberPath = "Cantidad";
+                    dgDetalle.DisplayMemberPath = "Precio";
+                    dgDetalle.DisplayMemberPath = "Descuento";
+
+
+                    dgDetalle.SelectedValuePath = "Id_Venta";
+                    dgDetalle.ItemsSource = tabla1.DefaultView;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private string MostrarId()
+        {
+            string x = "";
+
+
+            try
+            {
+                string query = "select Id_Venta from Venta where Id_Venta=(select MAX(Id_Venta) from Venta)";
+
+                sqlconnection.Open();
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                // Reemplazar el parámetro con su valor respectivo
+
+                sqlCommand.ExecuteNonQuery();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                if (reader.Read())
+                {
+
+                    x = reader["Id_Venta"].ToString();
+
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                sqlconnection.Close();
+            }
+
+
+
+            return x;
         }
     }
 }

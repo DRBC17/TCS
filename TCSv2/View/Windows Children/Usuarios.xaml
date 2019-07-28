@@ -106,13 +106,18 @@
 
 
                 </StackPanel>
-                <ComboBox Width="100" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Acceso" materialDesign:HintAssist.IsFloating="True" Margin="0" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" >
-                    <ComboBoxItem >M</ComboBoxItem>
-                    <ComboBoxItem >F</ComboBoxItem>
 
-                </ComboBox>
-               
-                <StackPanel Orientation="Horizontal"/>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox Name="cbAcceso" Width="100" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Acceso" materialDesign:HintAssist.IsFloating="True" Margin="0" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" >
+
+
+                    </ComboBox>
+                    <ComboBox  Name="cbGnero" Width="100" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Genero" materialDesign:HintAssist.IsFloating="True" Margin="310,0,0,0" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" >
+                        <ComboBoxItem>M</ComboBoxItem>
+                        <ComboBoxItem>F</ComboBoxItem>
+
+                    </ComboBox>
+                </StackPanel>
 
 
 
@@ -126,25 +131,25 @@
             <StackPanel Orientation="Horizontal" Height="100" HorizontalAlignment="Center">
                 <!--Espacio Para Total de Registros -->
 
-                <Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Name="btnNuevo" Click="BtnNuevo_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="FilePlus" Width="40" Height="40" />
                         <TextBlock FontSize="25" Margin="5">Nuevo</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Name="btnGuardar" Click="BtnGuardar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ContentSave" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Guardar</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Name="btnEditar" Click="BtnEditar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Edit" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Editar</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF">
+                <Button Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF" Name="btnCancelar" Click="BtnCancelar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Cancel" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Cancelar</TextBlock>

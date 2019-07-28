@@ -22,6 +22,7 @@ namespace TCSv2.View.Windows_Children
     /// </summary>
     public partial class Compras : Window
     {
+        double total = 0;
         SqlConnection sqlconnection;
         public Compras()
         {
@@ -38,8 +39,44 @@ namespace TCSv2.View.Windows_Children
             double isv= Mostrar_ISC() * 100;
             txtISV.Text = string.Format("{0}%",isv);
             txtISV.IsEnabled = false;
+            Mostrar();
         }
+        private void Mostrar()
+        {
+            try
+            {
 
+                string query = "SELECT * FROM Compra";
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlconnection);
+
+                using (sqlDataAdapter)
+                {
+
+                    DataTable tabla1 = new DataTable();
+
+
+                    sqlDataAdapter.Fill(tabla1);
+
+                    dgllenar.DisplayMemberPath = "Id_Compra";
+                    dgllenar.DisplayMemberPath = "Id_Proveedor";
+                    dgllenar.DisplayMemberPath = "Id_Detalle_Compra";
+                    dgllenar.DisplayMemberPath = "Serie";
+         
+                    dgllenar.DisplayMemberPath = "Id_ISV";
+                    dgllenar.DisplayMemberPath = "Estado";
+                    dgllenar.DisplayMemberPath = "Fecha";
+
+
+                    dgllenar.SelectedValuePath = "Id_Compra";
+                    dgllenar.ItemsSource = tabla1.DefaultView;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
         private void ListarComprobantes()
         {
             try
@@ -297,6 +334,11 @@ namespace TCSv2.View.Windows_Children
             cbArticulo.SelectedValue = null;
             cbProveedor.SelectedValue = null;
             cbComprobante.SelectedValue = null;
+            txttotal.Text = String.Format("0");
+            dgDetalle.Columns.Clear();
+            btnGuardar.IsEnabled = true;
+            btnAgregar.IsEnabled = false;
+            Mostrar();
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
@@ -343,22 +385,182 @@ namespace TCSv2.View.Windows_Children
             {
                 sqlconnection.Close();
                 // Actualizar el ListBox de Articulos
-                ListarArticulos();
-                ListarProveedor();
+                btnAgregar.IsEnabled = true;
+                btnGuardar.IsEnabled = false;
+
             }
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
             txtStockInicial.Text = String.Empty;
+            txttotal.Text = String.Format("0");
+            dgDetalle.Columns.Clear();
             txtNumero.Text = String.Empty;
             txtPrecioCompra.Text = String.Empty;
             txtPrecioVenta.Text = String.Empty;
+            btnGuardar.IsEnabled = true;
+            btnAgregar.IsEnabled = false;
+            ListarArticulos();
+            ListarProveedor();
+            Mostrar();
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                string query = "INSERT INTO Detalle_Compra(Id_Compra, Id_Articulo,Precio_Compra,Precio_Venta,Stock) VALUES(@Id_Compra, @Id_Articulo,@Precio_Compra,@Precio_Venta,@Stock)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
 
+                // Abrir la conexión
+
+
+                // @Id_Compra, @Id_Articulo,@Detalle,@Precio_Compra,@Precio_Venta,@Stock
+
+                sqlCommand.Parameters.AddWithValue("@Id_Compra",MostrarId());
+                sqlCommand.Parameters.AddWithValue("@Id_Articulo", cbArticulo.SelectedValue.ToString());
+                sqlCommand.Parameters.AddWithValue("@Precio_Compra",txtPrecioCompra.Text);
+                sqlCommand.Parameters.AddWithValue("@Precio_Venta", txtPrecioVenta.Text);
+                sqlCommand.Parameters.AddWithValue("@Stock", txtStockInicial.Text);
+               
+
+
+                // sqlCommand.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("DD/MM/YY"));
+                // Ejecutamos el query de inserción
+                // https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.executescalar
+
+                  sqlconnection.Open();
+
+                if (sqlCommand.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("La operación se ha completado correctamente");
+                   
+                  
+                }
+                else
+                {
+                    MessageBox.Show("La operación No se ha completado correctamente");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlconnection.Close();
+                // Actualizar el ListBox de Articulos
+                ListarDetalle_Compra();
+                MostrarTotal();
+                ListarArticulos();
+                txtStockInicial.Text = String.Empty;
+                txtPrecioCompra.Text = String.Empty;
+                txtPrecioVenta.Text = String.Empty;
+
+            }
+        }
+
+        private void MostrarTotal()
+        {
+            double amt=0;
+            try
+            {
+                string query = "SELECT SUM(Precio_Compra) FROM Detalle_Compra Where Id_Compra=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                sqlCommand.Parameters.AddWithValue("@Id", MostrarId());
+                sqlconnection.Open();
+              amt = (double)sqlCommand.ExecuteScalar();   //arror is at this part
+                sqlconnection.Close();
+                //total = total + int.Parse(txtPrecioCompra.Text);
+                //txttotal.Text = total.ToString();
+            }
+            catch (Exception ex){
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                txttotal.Text = amt.ToString();
+            }
+
+        }
+
+        private void ListarDetalle_Compra()
+        {
+
+            try
+            {
+
+                string query = "SELECT * FROM Detalle_Compra WHERE Id_Compra=@Id";
+
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlCommand.Parameters.AddWithValue("@Id", MostrarId());
+                using (sqlDataAdapter)
+                {
+
+                    DataTable tabla1 = new DataTable();
+
+
+                    sqlDataAdapter.Fill(tabla1);
+
+                    dgDetalle.DisplayMemberPath = "Id_Compra";
+                    dgDetalle.DisplayMemberPath = "Id_Articulo";
+             
+                    dgDetalle.DisplayMemberPath = "Precio_Compra";
+                    dgDetalle.DisplayMemberPath = "Precio_Venta";
+                    dgDetalle.DisplayMemberPath = "Stock";
+
+
+                    dgDetalle.SelectedValuePath = "Id_Compra";
+                    dgDetalle.ItemsSource = tabla1.DefaultView;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private string MostrarId()
+        {
+            string x = "";
+        
+
+            try
+            {
+                string query = "select Id_Compra from Compra where Id_Compra=(select MAX(Id_Compra) from Compra)";
+
+                sqlconnection.Open();
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                // Reemplazar el parámetro con su valor respectivo
+
+                sqlCommand.ExecuteNonQuery();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                  
+                    x = reader["Id_Compra"].ToString();
+                  
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                sqlconnection.Close();
+            }
+
+
+
+            return x;
         }
     }
 }

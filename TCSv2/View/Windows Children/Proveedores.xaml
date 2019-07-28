@@ -94,25 +94,21 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBox Name="txtNombre" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 0 15"/>
-                    <TextBox Name="txtApellido" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Apellido" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="110 0 0 15"/>
+                    <TextBox Name="txtSectorComercial" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Sector Comercial" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="110 0 0 15"/>
 
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox Name="cbGenero" Width="100" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Genero" materialDesign:HintAssist.IsFloating="True" Margin=" 0 0 90 25" >
-                        <ComboBoxItem >M</ComboBoxItem>
-                        <ComboBoxItem >F</ComboBoxItem>
+                    <ComboBox Name="cbTipoDocumento" Width="auto" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Tipo de Documento" materialDesign:HintAssist.IsFloating="True" Margin=" 0 0 90 25" >
+                        <ComboBoxItem >DNI</ComboBoxItem>
+                    
 
                     </ComboBox>
-                    <StackPanel Orientation="Vertical" Margin="225 0 0 0" >
-                        <TextBlock FontSize="25" Foreground="#FF1B64CF">Fecha de Nacimiento</TextBlock>
-                        <DatePicker Name="DpInicialFecha" Background="#FF1B64CF" Foreground="White" Width="130" Height="40" FontSize="25"  HorizontalAlignment="Left"></DatePicker>
-
-                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="225 0 0 0" />
                 </StackPanel>
 
-                <TextBox Name="txtIdentidad" Width="250" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Identidad" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 0 15" HorizontalAlignment="Left"/>
-                <TextBox Name="txtDescripcion" Height="120" Width="250" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Descripcion" materialDesign:HintAssist.IsFloating="False" Background="#FF1B64CF" Foreground="White" FontSize="25" Margin="0 0 0 0" HorizontalAlignment="Left"></TextBox>
+                <TextBox Name="txtDocumento" Width="250" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Documento" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 0 15" HorizontalAlignment="Left"/>
+                <TextBox Name="txtDireccion" Height="120" Width="250" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Direccion" materialDesign:HintAssist.IsFloating="False" Background="#FF1B64CF" Foreground="White" FontSize="25" Margin="0 0 0 0" HorizontalAlignment="Left"></TextBox>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBox Name="txtTelefono" Width="200" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Telefono" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="0 0 0 15" HorizontalAlignment="Left"/>

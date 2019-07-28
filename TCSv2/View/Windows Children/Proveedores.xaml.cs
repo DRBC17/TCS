@@ -264,18 +264,23 @@ namespace TCSv2.View.Windows_Children
         }
         private void BtnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            txtApellido.Text = String.Empty;
-            txtDescripcion.Text = String.Empty;
+            Limpiar();
+
+        }
+
+        private void Limpiar()
+        {
+            txtSectorComercial.Text = String.Empty;
+            txtDireccion.Text = String.Empty;
+            cbTipoDocumento.SelectedValue = null;
             txtNombre.Text = String.Empty;
             txtCorreo.Text = String.Empty;
-            txtIdentidad.Text = String.Empty;
             txtTelefono.Text = String.Empty;
-
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNombre.Text != string.Empty && txtApellido.Text != string.Empty && txtDescripcion.Text != string.Empty )
+            if (txtNombre.Text == string.Empty && txtDireccion.Text == string.Empty && txtDocumento.Text == string.Empty )
             {
                 MessageBox.Show("Debe rellenar todos los campos vacios.");
                 txtNombre.Focus();
@@ -285,19 +290,20 @@ namespace TCSv2.View.Windows_Children
             {
                 try
                 {
-                    string query = "INSERT INTO Proveedor(Nombre,Descripcion,Id_Categoria,Fecha) VALUES(@codigo,@nombre,@descripcion,@id_Categoria)";
+                    string query = "INSERT INTO Proveedor(Nombre,Sector_Comercial,Tipo_Documento,Documento,Direccion,Telefono,Correo) VALUES(@Nombre,@Sector,@TipoDoc,@Doc,@Direccion,@Telefono,@Correo)";
 
                     SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
 
                     sqlconnection.Open();
-                    //string f;
-                    //f = DateTime.Now.ToString();
-                    sqlCommand.Parameters.AddWithValue("@Apellido", txtApellido.Text);
-                    sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    sqlCommand.Parameters.AddWithValue("@Identidad", txtIdentidad.Text);
+                 
+                    //f = DateTime.Now.ToString();,@Doc,@Direccion,@Telefono,@Correo
+                    sqlCommand.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+                    sqlCommand.Parameters.AddWithValue("@Sector", txtSectorComercial.Text);
+                    sqlCommand.Parameters.AddWithValue("@TipoDoc", cbTipoDocumento.SelectedValue.ToString());
+                    sqlCommand.Parameters.AddWithValue("@Doc", txtDocumento.Text);
+                    sqlCommand.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
                     sqlCommand.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
                     sqlCommand.Parameters.AddWithValue("@Correo", txtCorreo.Text);
-                    sqlCommand.Parameters.AddWithValue("@Descripcion", txtDescripcion.Text);
                     //sqlCommand.Parameters.AddWithValue("@fecha", f);
                     sqlCommand.ExecuteNonQuery();
                 }
@@ -325,18 +331,18 @@ namespace TCSv2.View.Windows_Children
             {
                 try
                 {
-                    string query = "UPDATE Proveedor SET Id_Proveedor,Nombre,Descripcion,Telefono, Correo, = @Id_Proveedor,@nombre,@descripcion,@Telefono,@Correo WHERE Id_Proveedor = @Id_Proveedor";
+                    string query = "UPDATE Proveedor SET Sector_Comercial,Tipo_Documento,Documento,Direccion,Telefono,Correo =@Sector,@TipoDoc,@Doc,@Direccion,@Telefono,@Correo WHERE Nombre = @Nombre";
                     //Articulo(Codigo,Nombre,Descripcion,Id_Categoria,Fecha) VALUES(@codigo,@nombre,@descripcion,@id_Categoria)
                     SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
 
                     sqlconnection.Open();
-
-                    sqlCommand.Parameters.AddWithValue("@Apellido", txtApellido.Text);
-                    sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    sqlCommand.Parameters.AddWithValue("@Identidad", txtIdentidad.Text);
+                    sqlCommand.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+                    sqlCommand.Parameters.AddWithValue("@Sector", txtSectorComercial.Text);
+                    sqlCommand.Parameters.AddWithValue("@TipoDoc", cbTipoDocumento.SelectedValue.ToString());
+                    sqlCommand.Parameters.AddWithValue("@Doc", txtDocumento.Text);
+                    sqlCommand.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
                     sqlCommand.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
                     sqlCommand.Parameters.AddWithValue("@Correo", txtCorreo.Text);
-                    sqlCommand.Parameters.AddWithValue("@Descripcion", txtDescripcion.Text);
                     sqlCommand.ExecuteNonQuery();
                 }
                 catch (Exception ex)
@@ -353,65 +359,13 @@ namespace TCSv2.View.Windows_Children
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            txtApellido.Text = String.Empty;
-            txtDescripcion.Text = String.Empty;
-            txtNombre.Text = String.Empty;
-            txtCorreo.Text = String.Empty;
-            txtIdentidad.Text = String.Empty;
-            txtTelefono.Text = String.Empty;
+            Limpiar();
         }
 
 
-        //private void BtnEditar_Click(object sender, RoutedEventArgs e)
-        //{
-           /* if(txtNombre.Text == string.Empty)
-            {
-                MessageBox.Show("Debe ingresar un nombre");
-                txtNombre.Focus();
-            }
-            else
-            {
-                try
-                {
-                    string query = "SELECT * FROM Proveedor WHERE Nombre =  @nombre" +
-                        "Sector_Comercial = @sector_Comercial" + "Tipo_Documento = @tipo_Documento" 
-                        + "Documento = @descripcion" +  "Direccion =@direccion" + "Telefono = @telefono"
-                        + "Fecha = @fecha";
-
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
-                    sqlconnection.Open();
-                    sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    sqlCommand.Parameters.AddWithValue("@nombre", txtApellido.Text);
-                    sqlCommand.Parameters.AddWithValue("@sector_comercial", txtDescripcion.Text);
-                    sqlCommand.Parameters.AddWithValue("@tipo_Documento", txtDescripcion.Text);
-                    sqlCommand.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
-                    sqlCommand.Parameters.AddWithValue("@direccion", txtNombre.Text);
-                    sqlCommand.Parameters.AddWithValue("@telefono", txtTelefono.Text);
-                    sqlCommand.Parameters.AddWithValue("@correo", txtCorreo.Text);
-                    sqlCommand.ExecuteNonQuery();
-
-
-
-
-                    MessageBox.Show("Se ha Editado exitosamente");
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    sqlconnection.Close();
-                    Mostrar();
-                }
-            }*/
         }
 
-       // private void BtnCancelar_Click(object sender, RoutedEventArgs e)
-      //  {
-    //
-        //}
+      
 }
 
 

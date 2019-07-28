@@ -21,6 +21,7 @@ namespace TCSv2.View.Windows_Children
     /// </summary>
     public partial class Usuarios : Window
     {
+        int ID = 0;
         SqlConnection sqlconnection;
         public Usuarios()
         {
@@ -29,6 +30,39 @@ namespace TCSv2.View.Windows_Children
             sqlconnection = new SqlConnection(connectionString);
 
             Mostrar();
+            ListarAcceso();
+        }
+
+        private void ListarAcceso()
+        {
+            try
+            {
+                // El query ha realizar en la BD
+                string query = "SELECT * FROM Acceso";
+
+                // SqlDataAdapter es una interfaz entre las tablas y los objetos utilizables en C#
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlconnection);
+
+                using (sqlDataAdapter)
+                {
+                    // Objecto en C# que refleja una tabla de una BD
+                    DataTable tablaP = new DataTable();
+
+                    // Llenar el objeto de tipo DataTable
+                    sqlDataAdapter.Fill(tablaP);
+
+                    // ¿Cuál información de la tabla en el DataTable debería se desplegada en nuestro ListBox?
+                    cbAcceso.DisplayMemberPath = "Cargos";
+                    // ¿Qué valor debe ser entregado cuando un elemento de nuestro ListBox es seleccionado?
+                    cbAcceso.SelectedValuePath = "Id_Acceso";
+                    // ¿Quién es la referencia de los datos para el ListBox (popular)
+                    cbAcceso.ItemsSource = tablaP.DefaultView;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
         private void Mostrar()
@@ -281,44 +315,107 @@ namespace TCSv2.View.Windows_Children
 
         }
 
-        //private void BtnGuardar_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (txtNombre.Text != string.Empty && txtApellido.Text != string.Empty && txtUsuario.Text != string.Empty && txtContra.Password != string.Empty)
-        //    {
-        //        MessageBox.Show("Debe rellenar todos los campos vacios.");
-        //        txtNombre.Focus();
+        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+     
+                try
+                {
+                    string query = "INSERT INTO Usuario(Nombre,Contraseña) VALUES(@nombre,@Contra)";
 
-        //    }
-        //    else
-        //    {
-        //        try
-        //        {
-        //            string query = "INSERT INTO Usuario(Id_Usuario,Nombre,Contraseña) VALUES(@Id_Usuario,@nombre,@Contra)";
+                    SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
 
-        //            SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                    sqlconnection.Open();
+                
+                    sqlCommand.Parameters.AddWithValue("@Nombre", txtUsuario.Text);
+                    sqlCommand.Parameters.AddWithValue("@Contra", txtContra.Password);
+            
+                if (sqlCommand.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("La operación se ha completado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("La operación No se ha completado correctamente");
+                }
+            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    sqlconnection.Close();
+                AgregarEmpleado();
+                Mostrar();
+            }
+            
+        }
 
-        //            sqlconnection.Open();
-        //            //string f;
-        //            //f = DateTime.Now.ToString();
-        //            sqlCommand.Parameters.AddWithValue("@Id_Usuario", txtUsuario.Text);
-        //            sqlCommand.Parameters.AddWithValue("@Apellido", txtApellido.Text);
-        //            sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text);
-        //            sqlCommand.Parameters.AddWithValue("@Contra", txtContra.Password);
-        //            //sqlCommand.Parameters.AddWithValue("@fecha", f);
-        //            sqlCommand.ExecuteNonQuery();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.ToString());
-        //        }
-        //        finally
-        //        {
-        //            sqlconnection.Close();
-        //            Mostrar();
-        //        }
-        //    }
-        //}
+        private void AgregarEmpleado()
+        {
+            //sqlconnection.Close();
+            //try
+            //{
+            //    string query = "INSERT INTO Empleado(Nombre,Apellido,Genero,Id_Acceso,Id_Usuario) VALUES(@Nombre,@Apellido,@Genero,@Id_Acceso,@Id_Usuario)";
 
+            //    SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+            //    sqlCommand.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+            //    sqlCommand.Parameters.AddWithValue("@Apellido", txtApellido.Text);
+            //    sqlCommand.Parameters.AddWithValue("@Genero", cbGnero.SelectedValue.ToString());
+            //    sqlCommand.Parameters.AddWithValue("@Id_Acceso", cbAcceso.SelectedValue.ToString());
+            //    sqlCommand.Parameters.AddWithValue("@Id_Usuario", BuscarID().ToString());
+            //    sqlconnection.Open();
+            //    //@Nombre,@Apellido,@Genero,@Id_Acceso,@Id_Usuario
+             
+        
+
+            //    sqlCommand.ExecuteNonQuery();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
+            //finally
+            //{
+            //    sqlconnection.Close();
+            
+            //    Mostrar();
+            //}
+        }
+
+        private string BuscarID()
+        {
+            string x="";
+            try
+            {
+                string query = "SELECT Id_Usuario FROM Usuario WHERE Nombre=@Usuario";
+
+                sqlconnection.Open();
+                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                // Reemplazar el parámetro con su valor respectivo
+                sqlCommand.Parameters.AddWithValue("@Usuario", txtUsuario.Text);
+                sqlCommand.ExecuteNonQuery();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                
+                    x = reader["Id_Usuario"].ToString();
+               
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                sqlconnection.Close();
+            }
+            return x;
+        }
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
