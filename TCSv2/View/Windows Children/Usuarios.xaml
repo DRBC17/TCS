@@ -53,23 +53,23 @@
         </Border>
 
         <!--#region Panel Listado-->
-        <Border Name="PanelListado" Grid.RowSpan="5" Grid.ColumnSpan="3" Visibility="Visible" Width="1000" Margin="0 70">
+        <Border Name="PanelListado" Grid.RowSpan="5" Grid.ColumnSpan="3" Visibility="Hidden" Width="1000" Margin="0 70">
             <Grid Background="White">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" >
 
                         <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
-                            <TextBox Width="200" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True">
+                            <TextBox Width="200" x:Name="txtbuscar" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True">
                              
                             </TextBox>
-                            <Button Name="btnLBuscarVentas" Background="#FF1B64CF"  Width="80" Height="60" Margin="10 0 0 0">
+                            <Button Name="btnLBuscarVentas" Background="#FF1B64CF"  Width="80" Height="60" Margin="10 0 0 0" Click="BtnLBuscarVentas_Click">
                                 <StackPanel Orientation="Horizontal" >
                                     <materialDesign:PackIcon Kind="Search" Width="40" Height="40" Margin="5"/>
 
                                 </StackPanel>
                             </Button>
                         </StackPanel>
-                        <Button Name="btnLEliminarVentas" Background="#FF1B64CF" Margin="300 20 0 0" Width="180" Height="60" >
+                        <Button Name="btnLEliminarVentas" Background="#FF1B64CF" Margin="300 20 0 0" Width="180" Height="60" Click="BtnLEliminarVentas_Click" >
                             <StackPanel Orientation="Horizontal" >
                                 <materialDesign:PackIcon Kind="Delete" Width="40" Height="40" Margin="5"/>
                                 <TextBlock FontSize="25" Margin="5">Eliminar</TextBlock>
@@ -80,16 +80,16 @@
                     <StackPanel Orientation="Horizontal" Height="40">
                         <!--Espacio Para Total de Registros -->
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="400" Background="Gray">
+                    <DataGrid x:Name="dgllenar" Height="400" Background="Gray">
 
-                    </StackPanel>
+                    </DataGrid>
                 </StackPanel>
             </Grid>
         </Border>
         <!--#endregion-->
 
         <!--#region Panel Mantenimiento-->
-        <Border Name="PanelMantenimientoPart1" Visibility="Hidden"  Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center">
+        <Border Name="PanelMantenimientoPart1" Visibility="Visible"  Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center">
             <StackPanel Orientation="Vertical" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Top" >
 
                 <StackPanel Orientation="Horizontal">
@@ -106,13 +106,18 @@
 
 
                 </StackPanel>
-                <ComboBox Width="100" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Acceso" materialDesign:HintAssist.IsFloating="True" Margin="0" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" >
-                    <ComboBoxItem >M</ComboBoxItem>
-                    <ComboBoxItem >F</ComboBoxItem>
 
-                </ComboBox>
-               
-                <StackPanel Orientation="Horizontal"/>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox Name="cbAcceso" Width="100" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Acceso" materialDesign:HintAssist.IsFloating="True" Margin="0" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" >
+
+
+                    </ComboBox>
+                    <ComboBox  Name="cbGnero" Width="100" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Genero" materialDesign:HintAssist.IsFloating="True" Margin="310,0,0,0" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" >
+                        <ComboBoxItem>M</ComboBoxItem>
+                        <ComboBoxItem>F</ComboBoxItem>
+
+                    </ComboBox>
+                </StackPanel>
 
 
 
@@ -122,29 +127,29 @@
 
 
 
-        <Border Grid.Row="3" Grid.ColumnSpan="3" Name="PanelMantenimientoBotones" Visibility="Hidden">
+        <Border Grid.Row="3" Grid.ColumnSpan="3" Name="PanelMantenimientoBotones" Visibility="Visible">
             <StackPanel Orientation="Horizontal" Height="100" HorizontalAlignment="Center">
                 <!--Espacio Para Total de Registros -->
 
-                <Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Name="btnNuevo" Click="BtnNuevo_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="FilePlus" Width="40" Height="40" />
                         <TextBlock FontSize="25" Margin="5">Nuevo</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Name="btnGuardar" Click="BtnGuardar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ContentSave" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Guardar</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Name="btnEditar" Click="BtnEditar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Edit" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Editar</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF">
+                <Button Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF" Name="btnCancelar" Click="BtnCancelar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Cancel" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Cancelar</TextBlock>

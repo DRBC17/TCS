@@ -47,17 +47,17 @@
         </Border>
 
         <!--#region Panel Listado-->
-        <Border Name="PanelListado" Grid.RowSpan="5" Visibility="Visible" Width="1000" Margin="0 70">
+        <Border Name="PanelListado" Grid.RowSpan="5" Visibility="Hidden" Width="1000" Margin="0 70">
             <Grid Background="White">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
                         <TextBox Name="txtNombre" Width="250" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue"/>
-                        <Button Name="btnLBuscarCategoria" Background="#FF1B64CF" Margin="15 0 0 0" Width="80" Height="50">
+                        <Button Name="btnLBuscarCategoria" Background="#FF1B64CF" Margin="15 0 0 0" Width="80" Height="50" Click="BtnLBuscarCategoria_Click">
                             <StackPanel Orientation="Vertical" >
                                 <materialDesign:PackIcon Kind="Search" Width="40" Height="40" Margin="5"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="175" Height="50" Margin="150 0 15 0" Background="#FF1B64CF">
+                        <Button Width="175" Height="50" Margin="150 0 15 0" Background="#FF1B64CF" Click="Button_Click">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Delete" Width="40" Height="40"/>
                                 <TextBlock FontSize="25" Margin="5">Eliminar</TextBlock>
@@ -74,23 +74,21 @@
                     <StackPanel Orientation="Horizontal" Height="40">
                         <!--Espacio Para Total de Registros -->
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="400" Width="900" Background="Gray">
+                    <DataGrid x:Name="dgllenar" Height="400" Width="900" Background="Gray" >
 
-                    </StackPanel>
+                    </DataGrid>
                 </StackPanel>
             </Grid>
         </Border>
         <!--#endregion-->
 
         <!--#region Panel Mantenimiento-->
-        <Border Name="PanelMantenimiento" Grid.Row="2" Visibility="Hidden">
+        <Border Name="PanelMantenimiento" Grid.Row="2" Visibility="Visible">
            
             <Grid Background="White">
                 <Grid Height="140" HorizontalAlignment="Right"  VerticalAlignment="Top">
-                    <ComboBox Width="200" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Categoria" materialDesign:HintAssist.IsFloating="True" Margin=" 0 0 100 25" >
-                        <ComboBoxItem Name="cbi1">Item1</ComboBoxItem>
-                        <ComboBoxItem Name="cbi2">Item2</ComboBoxItem>
-                        <ComboBoxItem Name="cbi3">Item3</ComboBoxItem>
+                    <ComboBox Name="lbcate" Width="200" FontSize="25" Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Categoria" materialDesign:HintAssist.IsFloating="True" Margin=" 0 0 100 25" >
+                        
                     </ComboBox>
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -98,21 +96,21 @@
                         <TextBox Name="txtCodigoVentas" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Codigo Ventas" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="41 0 0 15"/>
                         <TextBox Name="txtNombreMantenimiento" Width="300" Background="White" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" FontSize="25" Foreground="Blue" Margin="41 0 0 15"/>
 
-                        <TextBox  Height="150" Width="250" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Descripcion" materialDesign:HintAssist.IsFloating="False" Background="#FF1B64CF" Foreground="White" FontSize="25"></TextBox>
+                        <TextBox  Name="txtDescripcion" Height="150" Width="250" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Descripcion" materialDesign:HintAssist.IsFloating="False" Background="#FF1B64CF" Foreground="White" FontSize="25"></TextBox>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="50 0 0 0">
-                        <Grid Background="Gray" Width="180" Height="180">
+                        <!--<Grid Background="Gray" Width="180" Height="180">
                             
-                        </Grid>
-                        <StackPanel Orientation="Vertical" Margin="25 90 0 100">
+                        </Grid>-->
+                        <!--<StackPanel Orientation="Vertical" Margin="25 90 0 100">
                             <Button Background="#FF1B64CF" Width="90" Height="50">
                                 <materialDesign:PackIcon Kind="Add" Width="60" Height="40"/>
                             </Button>
                             <Button Background="#FF1B64CF" Width="90" Height="50" Margin="0 25 0 0">
                                 <materialDesign:PackIcon Kind="Cancel" Width="60" Height="40" />
                             </Button>
-                        </StackPanel>
+                        </StackPanel>-->
                     </StackPanel>
                     <StackPanel>
                         
@@ -122,28 +120,28 @@
                 </StackPanel>
             </Grid>
         </Border>
-        <Border Grid.Row="3" Name="PanelMantenimientoBotones" Visibility="Hidden">
+        <Border Grid.Row="3" Name="PanelMantenimientoBotones" Visibility="Visible">
             <StackPanel Orientation="Horizontal" Height="100" HorizontalAlignment="Center">
                 <!--Espacio Para Total de Registros -->
-                <Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button Name="btnNuevo" Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Click="BtnNuevo_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="FilePlus" Width="40" Height="40" />
                         <TextBlock FontSize="25" Margin="5">Nuevo</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button Name="btnGuardar" Width="170" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Click="BtnGuardar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ContentSave" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Guardar</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF">
+                <Button Name="btnEditar" Width="150" Height="60" Margin="15 0 0 0" Background="#FF1B64CF" Click="BtnEditar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Edit" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Editar</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF">
+                <Button Name="btnCancelar" Width="175" Height="60" Margin="15 0 15 0" Background="#FF1B64CF" Click="BtnCancelar_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Cancel" Width="40" Height="40"/>
                         <TextBlock FontSize="25" Margin="5">Cancelar</TextBlock>
