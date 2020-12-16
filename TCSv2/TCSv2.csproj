@@ -35,8 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=4.5.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.6.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,7 +65,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="TecnoCellDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TecnoCellDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
+      <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows Children\Articulo.xaml.cs">
+      <DependentUpon>Articulo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows Children\Categoria.xaml.cs">
+      <DependentUpon>Categoria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows Children\Clientes.xaml.cs">
+      <DependentUpon>Clientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows Children\Compras.xaml.cs">
+      <DependentUpon>Compras.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows Children\ConsultaStock.xaml.cs">
+      <DependentUpon>ConsultaStock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows Children\Proveedores.xaml.cs">
+      <DependentUpon>Proveedores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows Children\Usuarios.xaml.cs">
+      <DependentUpon>Usuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows Children\Ventas.xaml.cs">
+      <DependentUpon>Ventas.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -63,10 +106,46 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\WindowContenedorPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows Children\Articulo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows Children\Categoria.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows Children\Clientes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows Children\Compras.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows Children\ConsultaStock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows Children\Proveedores.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows Children\Usuarios.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows Children\Ventas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,13 +165,71 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="TecnoCellDataSet.xsc">
+      <DependentUpon>TecnoCellDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TecnoCellDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TecnoCellDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TecnoCellDataSet.xss">
+      <DependentUpon>TecnoCellDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\fondo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\TClogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Categoria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Fcuenta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\salir_1.png" />
+    <Resource Include="Assets\salir_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\salir_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Articulos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Categoria_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Clientes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Proveedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\consultas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\TecnoCellBD_FINAL-EDIT.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

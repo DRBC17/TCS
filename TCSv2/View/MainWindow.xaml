@@ -1,0 +1,27 @@
+﻿<Window x:Class="TCSv2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TCSv2.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="580" Width="420" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF1B64CF" WindowStyle="None" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Grid>
+        <!--<Image Source=""/>-->
+        <StackPanel Margin="30">
+            <Image Source="/Assets/TClogo.png" Width="150" Height="150"/>
+            <Border Background="White" Margin="10 20" CornerRadius="5">
+                <StackPanel Margin="25"><!--MaterialDesignTextBox-->
+                    <TextBox Name="txtUser" Margin="15" FontSize="25" Width="260"   Foreground="Blue" Style="{StaticResource MaterialDesignFloatingHintTextBox }" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" />
+                    <PasswordBox Name="txtPass" Margin="15" Width="260"  FontSize="25"  Foreground="Blue" Style="{StaticResource MaterialDesignPasswordBox}"  materialDesign:HintAssist.Hint=" Contraseña" materialDesign:HintAssist.IsFloating="True"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Name="btnIniciar" Margin="5 50" Width="120" Content="Iniciar sesión" Click="BtnIniciar_Click" MouseEnter="BtnIniciar_MouseEnter" MouseLeave="BtnIniciar_MouseLeave" Background="#FF1B64CF"/>
+                        <Button Name="btnSalir" Margin="5 50" Width="120" Content="Salir" Click="BtnSalir_Click" MouseEnter="BtnSalir_MouseEnter" MouseLeave="BtnSalir_MouseLeave" Background="#FF1B64CF"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <TextBox x:Name="txtCargo" Visibility="Visible"/>
+        </StackPanel>
+    </Grid>
+</Window>
